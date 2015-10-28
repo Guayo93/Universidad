@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="00F81CD6-7B3C-FD0C-874A-B4DC84721697" name="Lista_de_Visita">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<ownerDesignName>try4</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Comprador_cedula" id="EDE339CC-729D-49D0-F044-4A3A329CA289">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="47B02857-39B4-22A3-D787-7012E54E72B6" referredColumn="C758C44E-E1B9-5616-BC79-117FDA7868AE"/>
+</associations>
+</Column>
+<Column name="Propiedad_idProp" id="FAA7194B-5338-B5BB-4791-551F0CF41517">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3E774BC0-47BF-6463-9686-F2AC15419CB8" referredColumn="EEDD9EFE-506E-EE41-CB4A-FABED0EF504B"/>
+</associations>
+</Column>
+<Column name="fecha" id="B9866912-FD73-AC95-395F-A43928F08FFE">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>DB0F7D72-E166-1E91-110F-B1A34033BE03</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F05B0081-5763-F047-C4A0-7590F30DB64C" name="Lista_de_Visita_PK">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<ownerDesignName>try4</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EDE339CC-729D-49D0-F044-4A3A329CA289"/>
+<colUsage columnID="FAA7194B-5338-B5BB-4791-551F0CF41517"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BE9925F0-136A-97C3-0F86-FEEF7C218CA3" name="FK_ASS_3">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>5CED85F4-900A-8800-5DBF-666430E9DE55</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EDE339CC-729D-49D0-F044-4A3A329CA289"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="66455D9B-3CE3-5E74-C793-DC5007AE6198" name="FK_ASS_4">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>5CED85F4-900A-8800-5DBF-666430E9DE55</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FAA7194B-5338-B5BB-4791-551F0CF41517"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

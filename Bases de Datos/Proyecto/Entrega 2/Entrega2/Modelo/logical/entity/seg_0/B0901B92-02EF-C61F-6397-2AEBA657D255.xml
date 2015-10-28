@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="B0901B92-02EF-C61F-6397-2AEBA657D255" name="Propietario">
+<createdBy>aleja_000</createdBy>
+<createdTime>2015-10-14 02:10:52 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="D8185E67-08EF-DA30-1707-EFA7DC577208" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<hierarchicalParent>782117C0-8D97-3D93-674E-91E0242B5745</hierarchicalParent>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idP" id="827B6734-9C12-6D7C-13FE-3D47F09645D2">
+<createdBy>root</createdBy>
+<createdTime>2015-10-15 20:25:33 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="D8185E67-08EF-DA30-1707-EFA7DC577208" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="usuario" id="0C619CEC-2CDD-311E-13AE-F504DE66981B">
+<createdBy>root</createdBy>
+<createdTime>2015-10-15 20:25:36 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="D8185E67-08EF-DA30-1707-EFA7DC577208" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="contraseña" id="AD29B0D5-9DBE-713B-6358-8CBB390FCDBB">
+<createdBy>root</createdBy>
+<createdTime>2015-10-15 20:25:41 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="D8185E67-08EF-DA30-1707-EFA7DC577208" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F9CA495F-8138-5BB0-B836-AB27C561EAC0" name="Propietario PK">
+<createdBy>salainformatica</createdBy>
+<createdTime>2015-10-16 02:03:48 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="D8185E67-08EF-DA30-1707-EFA7DC577208" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>827B6734-9C12-6D7C-13FE-3D47F09645D2</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="242A94C3-1415-ECCA-BCA7-68353747F7EB" name="Key_2">
+<createdBy>salainformatica</createdBy>
+<createdTime>2015-10-16 02:05:22 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="D8185E67-08EF-DA30-1707-EFA7DC577208" value="true"/>
+</engineerTo>
+<newElementsIDs>0C619CEC-2CDD-311E-13AE-F504DE66981B</newElementsIDs>
+<usedAttributes>
+<attributeRef>0C619CEC-2CDD-311E-13AE-F504DE66981B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

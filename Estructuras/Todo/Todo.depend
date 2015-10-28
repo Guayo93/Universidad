@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1442561326 source:c:\users\cagua\documents\github\universidad\estructuras\tad arbol expresion\prueba.cxx
+	"ArbolEx.h"
+	<iostream>
+
+1442559889 c:\users\cagua\documents\github\universidad\estructuras\tad arbol expresion\arbolex.h
+	"NodoEx.h"
+	<iostream>
+	"ArbolEx.hxx"
+
+1442559889 c:\users\cagua\documents\github\universidad\estructuras\tad arbol expresion\nodoex.h
+	<iostream>
+	"NodoEx.hxx"
+
+1442561514 c:\users\cagua\documents\github\universidad\estructuras\tad arbol expresion\nodoex.hxx
+	<iostream>
+
+1442561517 c:\users\cagua\documents\github\universidad\estructuras\tad arbol expresion\arbolex.hxx
+

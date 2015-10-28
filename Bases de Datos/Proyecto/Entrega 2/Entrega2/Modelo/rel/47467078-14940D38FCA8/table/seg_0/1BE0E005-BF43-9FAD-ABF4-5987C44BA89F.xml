@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1BE0E005-BF43-9FAD-ABF4-5987C44BA89F" name="Ciudad">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>A042D058-C914-BD6F-9663-23C78BA03792</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cod_ciudad" id="0E4C4632-F9CB-33DE-6A9B-F0E4F20B3BD6">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>17A3F7B2-D112-DB54-04ED-ACD95016CC00</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="2853A19E-243E-0F6D-AC5D-2662C2158CAF">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>B8D6564D-4599-84DB-3A05-6226D4F9C085</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="468048BA-C5CF-2ABB-25F9-430236D6284D" name="Ciudad_PK">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>4F5706EF-3D74-E258-FF8E-1EDE5A1D29F3</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0E4C4632-F9CB-33DE-6A9B-F0E4F20B3BD6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

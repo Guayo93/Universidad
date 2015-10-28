@@ -1,0 +1,157 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7FE17531-6E80-F5D1-DE7E-CCD071770B0A" name="Propiedad">
+<createdBy>aleja_000</createdBy>
+<createdTime>2015-10-14 02:10:39 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="47467078-0511-43DA-A82B-14940D38FCA8" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idProp" id="D47482D6-7C0E-B757-AF50-9945F77E122E">
+<createdBy>root</createdBy>
+<createdTime>2015-10-15 20:26:46 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="47467078-0511-43DA-A82B-14940D38FCA8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cod_ciudad" id="05006C3E-40FA-25BF-5F6D-D5E0C919AE01">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:28:53 UTC</createdTime>
+<generatorID>1B1A637D-D99B-C47A-1656-712D80F3E163</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="47467078-0511-43DA-A82B-14940D38FCA8" value="true"/>
+</engineerTo>
+<referedAttribute>17A3F7B2-D112-DB54-04ED-ACD95016CC00</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tipo" id="F716694D-CF10-7FE7-F0EB-8041BFC445B0">
+<createdBy>root</createdBy>
+<createdTime>2015-10-15 20:26:13 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="47467078-0511-43DA-A82B-14940D38FCA8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="numHabitaciones" id="D8D2F9A2-EFA5-987A-D2FA-B59B76C3823F">
+<createdBy>root</createdBy>
+<createdTime>2015-10-15 20:27:01 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="47467078-0511-43DA-A82B-14940D38FCA8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="direccion" id="B606626C-FDC9-8FB6-61C7-4AB159CAF2CB">
+<createdBy>root</createdBy>
+<createdTime>2015-10-15 20:26:25 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="47467078-0511-43DA-A82B-14940D38FCA8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Estado" id="0794EA3B-D014-F2F8-2E24-278A7C702432">
+<createdBy>salainformatica</createdBy>
+<createdTime>2015-10-16 01:33:59 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="47467078-0511-43DA-A82B-14940D38FCA8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="renta" id="26903606-953E-4162-620E-59C1D059596B">
+<createdBy>root</createdBy>
+<createdTime>2015-10-15 20:27:34 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="47467078-0511-43DA-A82B-14940D38FCA8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idP" id="3F4CD94A-683A-0D59-ED08-995CB2D69A34">
+<createdBy>salainformatica</createdBy>
+<createdTime>2015-10-16 02:04:01 UTC</createdTime>
+<generatorID>A44BA49A-A41F-480E-2C23-594AEA5E3FAA</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="47467078-0511-43DA-A82B-14940D38FCA8" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>827B6734-9C12-6D7C-13FE-3D47F09645D2</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idC1" id="9E937D65-F587-6EF1-CD84-1B068D0AC051">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 04:47:09 UTC</createdTime>
+<generatorID>1AA4C95B-983C-EC4C-7AAC-38672E4972C1</generatorID>
+<ownerDesignName>Modelo</ownerDesignName>
+<engineerTo>
+<item key="47467078-0511-43DA-A82B-14940D38FCA8" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>10FD82A3-7E2D-5A4A-A1DB-2F253DD91E12</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="7C79CBA1-DFA2-BDF2-1962-88C79994C0C7" name="Propiedad PK">
+<createdBy>salainformatica</createdBy>
+<createdTime>2015-10-16 02:02:22 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="47467078-0511-43DA-A82B-14940D38FCA8" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D47482D6-7C0E-B757-AF50-9945F77E122E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

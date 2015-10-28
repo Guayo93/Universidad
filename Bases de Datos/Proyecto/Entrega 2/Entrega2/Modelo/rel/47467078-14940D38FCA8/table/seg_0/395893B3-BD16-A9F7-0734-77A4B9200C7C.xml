@@ -1,0 +1,106 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="395893B3-BD16-A9F7-0734-77A4B9200C7C" name="Propietario">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>B0901B92-02EF-C61F-6397-2AEBA657D255</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cedula" id="C97369C5-6D97-C167-3A18-7A7E3E7F3ACC">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>E7A6E625-F4D4-964D-EC6A-27D09D3275BF</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5018274B-F44B-954C-13A1-8C8C17143005" referredColumn="7F487D61-9078-1DB3-6FD9-C52AB156253E"/>
+</associations>
+</Column>
+<Column name="idP" id="BDDB97FF-819F-B241-B02A-6ED552CC3696">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>827B6734-9C12-6D7C-13FE-3D47F09645D2</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="usuario" id="F4B4A741-3210-6086-6FD7-087BFB811114">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>0C619CEC-2CDD-311E-13AE-F504DE66981B</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="contraseña" id="6CE3ECB5-E8B1-5554-F62E-B01FEE953CE1">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>AD29B0D5-9DBE-713B-6358-8CBB390FCDBB</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="239E4182-EE5E-A79E-D654-00A3947418A7" name="Propietario_PK">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>651C5533-CA01-2339-52E0-A990DE925E7C</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C97369C5-6D97-C167-3A18-7A7E3E7F3ACC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="59510771-D041-A96F-25DD-9FECF0911F4F" name="Propietario_PKv1">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>F9CA495F-8138-5BB0-B836-AB27C561EAC0</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BDDB97FF-819F-B241-B02A-6ED552CC3696"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="85D78033-836B-357E-AFA4-A10F7CCE1EAA" name="Propietario_usuario_UN">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>242A94C3-1415-ECCA-BCA7-68353747F7EB</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F4B4A741-3210-6086-6FD7-087BFB811114"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="43B8FF98-634F-5838-80C9-37E149B1F97E" name="Propietario_Usuario_FK">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>4F275D11-90A2-4DE2-7DDD-8E2967A2C298</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C97369C5-6D97-C167-3A18-7A7E3E7F3ACC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

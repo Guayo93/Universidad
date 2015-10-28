@@ -1,0 +1,183 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="94B8FD85-FC93-AF0F-0E77-169EF11DC401" name="Propiedad">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>7FE17531-6E80-F5D1-DE7E-CCD071770B0A</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idProp" id="EEDD9EFE-506E-EE41-CB4A-FABED0EF504B">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>D47482D6-7C0E-B757-AF50-9945F77E122E</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Ciudad_cod_ciudad" id="00D3CD2F-EE45-FAC5-F971-DE3C4F7EE31F">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>05006C3E-40FA-25BF-5F6D-D5E0C919AE01</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E4CE500D-6BDD-AD39-F3CB-C64F0C2D1948" referredColumn="0E4C4632-F9CB-33DE-6A9B-F0E4F20B3BD6"/>
+</associations>
+</Column>
+<Column name="tipo" id="C07926A4-2B12-F741-82C2-B0DED329A4CF">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>F716694D-CF10-7FE7-F0EB-8041BFC445B0</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="numHabitaciones" id="C682DB5B-F444-057B-D334-9FA919F2237B">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>D8D2F9A2-EFA5-987A-D2FA-B59B76C3823F</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="direccion" id="40494769-B060-55B4-FE80-157D8624FC01">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>B606626C-FDC9-8FB6-61C7-4AB159CAF2CB</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Estado" id="44012235-EC22-F704-D0FB-F63A8F81EA52">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>0794EA3B-D014-F2F8-2E24-278A7C702432</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="renta" id="F3DF74B8-A742-6766-4DBD-A24E6FFD79D9">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>26903606-953E-4162-620E-59C1D059596B</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Propietario_idP" id="FDE9B5BC-4500-5D1A-6853-BDAD0D369019">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>3F4CD94A-683A-0D59-ED08-995CB2D69A34</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CEE338A2-3045-1F07-E512-718526312ECF" referredColumn="BDDB97FF-819F-B241-B02A-6ED552CC3696"/>
+</associations>
+</Column>
+<Column name="Comprador_idC" id="14F0A501-1174-029B-51A6-E467043A5E6D">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>7115BB49-5478-82A8-2439-892BB43BE53C</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="810C4C18-BC6A-B1C9-D448-0732BE42A778" referredColumn="0DB03FC5-7A70-EF80-7856-8AED373EB81A"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="ACFFA17D-C05E-7E0A-AD14-0318F23126CD" name="Propiedad_PK">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>7C79CBA1-DFA2-BDF2-1962-88C79994C0C7</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EEDD9EFE-506E-EE41-CB4A-FABED0EF504B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BEF6AA31-8ECD-2374-AAFF-0A64B3C0E647" name="Propiedad__IDX">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<ownerDesignName>try4</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>1B1A637D-D99B-C47A-1656-712D80F3E163</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="00D3CD2F-EE45-FAC5-F971-DE3C4F7EE31F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="79B04205-9A7A-C06B-5A82-E55374F8604C" name="Propiedad_Ciudad_FK">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>1B1A637D-D99B-C47A-1656-712D80F3E163</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="00D3CD2F-EE45-FAC5-F971-DE3C4F7EE31F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2308A1A0-1528-8AC2-B09A-64792A90378B" name="Propiedad_Propietario_FK">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>A44BA49A-A41F-480E-2C23-594AEA5E3FAA</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FDE9B5BC-4500-5D1A-6853-BDAD0D369019"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D1B456A3-0089-0136-3D73-49263E59402C" name="Propiedad_Comprador_FK">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>1AA4C95B-983C-EC4C-7AAC-38672E4972C1</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="14F0A501-1174-029B-51A6-E467043A5E6D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

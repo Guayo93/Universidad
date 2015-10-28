@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9D9E1B5B-5ED5-9581-08A0-800EAA617ABD" name="Imagen">
+<createdBy>salainformatica</createdBy>
+<createdTime>2015-10-16 01:31:27 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="D8185E67-08EF-DA30-1707-EFA7DC577208" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idProp" id="BD5C13A2-79C7-3890-70A1-0EF7B43F9C68">
+<createdBy>salainformatica</createdBy>
+<createdTime>2015-10-16 02:02:53 UTC</createdTime>
+<generatorID>87E3FF14-998A-6F0F-1940-0BD68CF80880</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="D8185E67-08EF-DA30-1707-EFA7DC577208" value="true"/>
+</engineerTo>
+<referedAttribute>D47482D6-7C0E-B757-AF50-9945F77E122E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="imagen" id="4CB6278F-6589-9A94-092E-FDC253E357D0">
+<createdBy>salainformatica</createdBy>
+<createdTime>2015-10-16 01:37:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="D8185E67-08EF-DA30-1707-EFA7DC577208" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="descripcion" id="5557BE18-C847-2D1B-9E8F-FE866EFD5AF1">
+<createdBy>salainformatica</createdBy>
+<createdTime>2015-10-16 01:38:04 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="D8185E67-08EF-DA30-1707-EFA7DC577208" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha" id="12A8CBCA-252B-3577-F0C0-78337A8B2458">
+<createdBy>salainformatica</createdBy>
+<createdTime>2015-10-16 01:38:16 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="D8185E67-08EF-DA30-1707-EFA7DC577208" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="9CDCFED5-F9B0-FBD3-48F8-2F6DF9688848" name="Imagen PK">
+<createdBy>salainformatica</createdBy>
+<createdTime>2015-10-16 02:03:16 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="D8185E67-08EF-DA30-1707-EFA7DC577208" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BD5C13A2-79C7-3890-70A1-0EF7B43F9C68</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

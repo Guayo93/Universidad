@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Renta" directorySegmentName="seg_0" id="B30D3945-3D8C-28B3-931B-909712C29C35">
+<createdBy>salainformatica</createdBy>
+<createdTime>2015-10-16 17:30:18 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<engineerTo>
+<item key="3B359327-6FB8-5E21-C9F3-ACA215566710" value="true"/>
+</engineerTo>
+<sourcePk>05BB41C3-A392-DFFD-91C7-C0D5FC6FFB56</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>Arrienda</nameOnSource>
+<nameOnTarget>Arrendada</nameOnTarget>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>7D7CA071-D1B1-B3A7-FE00-90CA33DBBAA3</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>7FE17531-6E80-F5D1-DE7E-CCD071770B0A</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

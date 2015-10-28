@@ -1,0 +1,2 @@
+hola,saludos,que tal
+mundo,planeta,tierra,globo

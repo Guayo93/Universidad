@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="Table" objectID="00F81CD6-7B3C-FD0C-874A-B4DC84721697" name="Lista_de_Visita" seqName="seg_0"/>
+   <object objectType="Table" objectID="154F5BFA-6BC1-2FEC-4C32-CF38AFFE3D4D" name="Usuario" seqName="seg_0"/>
+   <object objectType="Table" objectID="1BE0E005-BF43-9FAD-ABF4-5987C44BA89F" name="Ciudad" seqName="seg_0"/>
+   <object objectType="Table" objectID="2C97FDA1-D66A-D852-970A-946231B17E67" name="Comprador" seqName="seg_0"/>
+   <object objectType="Table" objectID="395893B3-BD16-A9F7-0734-77A4B9200C7C" name="Propietario" seqName="seg_0"/>
+   <object objectType="Table" objectID="7983DA24-5868-AA28-E850-F03B450EF15A" name="Imagen" seqName="seg_0"/>
+   <object objectType="Table" objectID="94B8FD85-FC93-AF0F-0E77-169EF11DC401" name="Propiedad" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="24EB5B15-E463-C95B-BF9B-21E150B113EE" name="Comprador_Usuario_FK" containerID="2C97FDA1-D66A-D852-970A-946231B17E67" refContainerID="154F5BFA-6BC1-2FEC-4C32-CF38AFFE3D4D" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="3E774BC0-47BF-6463-9686-F2AC15419CB8" name="FK_ASS_4" containerID="00F81CD6-7B3C-FD0C-874A-B4DC84721697" refContainerID="94B8FD85-FC93-AF0F-0E77-169EF11DC401" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="47B02857-39B4-22A3-D787-7012E54E72B6" name="FK_ASS_3" containerID="00F81CD6-7B3C-FD0C-874A-B4DC84721697" refContainerID="2C97FDA1-D66A-D852-970A-946231B17E67" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="5018274B-F44B-954C-13A1-8C8C17143005" name="Propietario_Usuario_FK" containerID="395893B3-BD16-A9F7-0734-77A4B9200C7C" refContainerID="154F5BFA-6BC1-2FEC-4C32-CF38AFFE3D4D" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="810C4C18-BC6A-B1C9-D448-0732BE42A778" name="Propiedad_Comprador_FK" containerID="94B8FD85-FC93-AF0F-0E77-169EF11DC401" refContainerID="2C97FDA1-D66A-D852-970A-946231B17E67" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="CEE338A2-3045-1F07-E512-718526312ECF" name="Propiedad_Propietario_FK" containerID="94B8FD85-FC93-AF0F-0E77-169EF11DC401" refContainerID="395893B3-BD16-A9F7-0734-77A4B9200C7C" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="D733A3FE-9288-B3A7-FC24-411AF7FDE629" name="Imagen_Propiedad_FK" containerID="7983DA24-5868-AA28-E850-F03B450EF15A" refContainerID="94B8FD85-FC93-AF0F-0E77-169EF11DC401" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="E4CE500D-6BDD-AD39-F3CB-C64F0C2D1948" name="Propiedad_Ciudad_FK" containerID="94B8FD85-FC93-AF0F-0E77-169EF11DC401" refContainerID="1BE0E005-BF43-9FAD-ABF4-5987C44BA89F" seqName="seg_0"/>
+   <object objectType="FKArc" objectID="F29FE15A-1EB8-1BDE-AE79-6B39394CCA4E" name="FKArc_1" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

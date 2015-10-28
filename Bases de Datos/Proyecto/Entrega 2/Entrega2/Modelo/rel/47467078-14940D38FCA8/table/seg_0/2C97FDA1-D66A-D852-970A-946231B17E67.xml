@@ -1,0 +1,106 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2C97FDA1-D66A-D852-970A-946231B17E67" name="Comprador">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>7D7CA071-D1B1-B3A7-FE00-90CA33DBBAA3</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cedula" id="C758C44E-E1B9-5616-BC79-117FDA7868AE">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>E7A6E625-F4D4-964D-EC6A-27D09D3275BF</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="24EB5B15-E463-C95B-BF9B-21E150B113EE" referredColumn="7F487D61-9078-1DB3-6FD9-C52AB156253E"/>
+</associations>
+</Column>
+<Column name="idC" id="0DB03FC5-7A70-EF80-7856-8AED373EB81A">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>10FD82A3-7E2D-5A4A-A1DB-2F253DD91E12</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="usuario" id="DE3B6026-5A81-C3B6-2CA7-40F04C6254AB">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>DD9E950B-3C00-4ADC-6847-D104A31CEE68</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="contraseña" id="DA08BC62-6BC8-4231-E096-6FD9E5C8B261">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>A96080D3-4341-CD0F-3400-363FCE06C8C1</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="37E56C7F-7F57-4F0E-073F-E29A0778C303" name="Comprador_PK">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>651C5533-CA01-2339-52E0-A990DE925E7C</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C758C44E-E1B9-5616-BC79-117FDA7868AE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E961D338-A9DA-DFA1-2AEA-FB4B82C7670E" name="Comprador_PKv1">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>05BB41C3-A392-DFFD-91C7-C0D5FC6FFB56</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0DB03FC5-7A70-EF80-7856-8AED373EB81A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="137F40CC-BFC8-98F5-21C0-19791682CD6D" name="Comprador_usuario_UN">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>CB503E10-581E-8E3F-B83D-418742F7202E</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DE3B6026-5A81-C3B6-2CA7-40F04C6254AB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="502A8D0D-8E8A-1FA8-5730-2A83A2FE213D" name="Comprador_Usuario_FK">
+<createdBy>CaGua</createdBy>
+<createdTime>2015-10-17 02:32:07 UTC</createdTime>
+<generatorID>60DF3918-72C8-A331-00D8-A0599C5CB904</generatorID>
+<ownerDesignName>try4</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C758C44E-E1B9-5616-BC79-117FDA7868AE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

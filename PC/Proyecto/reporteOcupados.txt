@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>Reporte Lugares Ocupados</title>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+	<h4> Lugares Ocupados </h4>
+        <table>
+            <tr>
+                <th>Numero de Piso</th>
+                <th>Numero de Lugar</th>
+		<th>Placa del Vehiculo</th>
+		<th>Tipo de Vehiculo</th>
+            </tr>
