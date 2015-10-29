@@ -161,8 +161,8 @@ float calcularPuntoNoDiagonal(std::vector< float> verts, char eje1, char eje2)
     suma += ((*it - prom1) * (*it2 - prom2));
     it2++;
   }
-
-  return (suma* -1);
+  suma=suma*-1;
+  return suma;
 }
 
 void calcularRadii(std::vector< float > &eValues)
@@ -400,7 +400,180 @@ int main( int argc, char* argv[] )
           "obbox" << std::endl << "ellipsoid" << std::endl;
       }
     }
+    //----------------------Comando ellipsoid------------------------------
+if(!in.find("ellipsoid"))
+    {
+      if(!Objects.empty())
+      {
+        if(in.find(" ") != std::string::npos)
+        {
+          for(int i = 0; i < in.length(); i++)
+          {
+            if(in[i] == ' ')
+            {
+              for(int j = i + 1; j < in.length(); j++)
+              {
+                ar.push_back(in[j]);
+              }
+            }
+          }
 
+          int pos = 0;
+          bool enc = false;
+
+          std::list< Componente* >::iterator it = Objects.begin();
+          Componente* cp=*it;
+
+          for(; it != Objects.end() && enc == false;it++)
+          {
+            cp = *it;
+            if(cp->name == ar)
+            {
+              enc = true;
+          if(pos < Objects.size())
+          {
+            std::vector< float > verts = cp->obj->getVertices();
+            std::vector< float >::iterator it = verts.begin();
+
+            // Sacando Centro-------------------
+            float centro[3];
+            float promX = 0, promY = 0, promZ = 0;
+
+            for(int i = 0; it != verts.end(); it++)
+            {
+              if(i % 3 == 0)
+              {
+                promX += *it;
+              }
+              else if(i % 3 == 1)
+              {
+                promY += *it;
+              }
+              else
+              {
+                promZ += *it;
+              }
+            }
+
+            centro[0] = promX / (verts.size() / 3);
+            centro[1] = promY / (verts.size() / 3);
+            centro[2] = promZ / (verts.size() / 3);
+
+            // Sacando Matriz de Inercia----------------
+            float inercia[3][3];
+            inercia[0][0] = calcularPuntoDiagonal(verts, 'y', 'z');
+            inercia[0][1] = calcularPuntoNoDiagonal(verts, 'x', 'y');
+            inercia[0][2] = calcularPuntoNoDiagonal(verts, 'x', 'z');
+            inercia[1][0] = calcularPuntoNoDiagonal(verts, 'x', 'y');
+            inercia[1][1] = calcularPuntoDiagonal(verts, 'x', 'z');
+            inercia[1][2] = calcularPuntoNoDiagonal(verts, 'y', 'z');
+            inercia[2][0] = calcularPuntoNoDiagonal(verts, 'x', 'z');
+            inercia[2][1] = calcularPuntoNoDiagonal(verts, 'y', 'z');
+            inercia[2][2] = calcularPuntoDiagonal(verts, 'x', 'y');
+
+            // Sacando Valores y Vectores Propios---------
+            float eValues[3];
+            float eVectors[3][3];
+
+            EigenAnalysis< float >::Compute(inercia, eValues, eVectors);
+
+            // Sacando Matriz de Radios-------------------
+            float vecRadii[3];
+            vecRadii[0] = (float) sqrt((5 * (eValues[1] + eValues[2] - eValues[0]) / (2 * cp->nCant)));
+            vecRadii[1] = (float) sqrt((5 * (eValues[0] + eValues[2] - eValues[1]) / (2 * cp->nCant)));
+            vecRadii[2] = (float) sqrt((5 * (eValues[0] + eValues[1] - eValues[2]) / (2 * cp->nCant)));
+
+	    ObjectView* obbox= View::AddEllipsoid(inercia,centro,vecRadii);
+          }
+          else
+          {
+            std::cout << ar << " does not exist." << std::endl;
+          }
+            }
+            else
+            {
+              pos++;
+            }
+          }
+        }
+//-----------------------ellipsoid all--------
+        else
+        {
+          std::list< Componente* >::iterator it = Objects.begin();
+          Componente* cp=*it;
+	  int mayor=0;
+	  for(; it!=Objects.end();it++){
+	    cp=*it;
+	    if(cp->obj->getVertices().size()>mayor){
+	      mayor=cp->obj->getVertices().size();
+	    }
+	  }
+	  it=Objects.begin();
+	  for(; it!=Objects.end();it++){
+	    if(mayor==cp->obj->getVertices().size())
+              cp=*it;
+	  }
+	  std::vector< float > verts = cp->obj->getVertices();
+          std::vector< float >::iterator it2 = verts.begin();
+// Sacando Centro-------------------
+            float centro[3];
+            float promX = 0, promY = 0, promZ = 0;
+
+            for(int i = 0; it2 != verts.end(); it2++)
+            {
+              if(i % 3 == 0)
+              {
+                promX += *it2;
+              }
+              else if(i % 3 == 1)
+              {
+                promY += *it2;
+              }
+              else
+              {
+                promZ += *it2;
+              }
+            }
+
+            centro[0] = promX / (verts.size() / 3);
+            centro[1] = promY / (verts.size() / 3);
+            centro[2] = promZ / (verts.size() / 3);
+
+
+            // Sacando Matriz de Inercia----------------
+            float inercia[3][3];
+            inercia[0][0] = calcularPuntoDiagonal(verts, 'y', 'z');
+            inercia[0][1] = calcularPuntoNoDiagonal(verts, 'x', 'y');
+            inercia[0][2] = calcularPuntoNoDiagonal(verts, 'x', 'z');
+            inercia[1][0] = calcularPuntoNoDiagonal(verts, 'x', 'y');
+            inercia[1][1] = calcularPuntoDiagonal(verts, 'x', 'z');
+            inercia[1][2] = calcularPuntoNoDiagonal(verts, 'y', 'z');
+            inercia[2][0] = calcularPuntoNoDiagonal(verts, 'x', 'z');
+            inercia[2][1] = calcularPuntoNoDiagonal(verts, 'y', 'z');
+            inercia[2][2] = calcularPuntoDiagonal(verts, 'x', 'y');
+
+            // Sacando Valores y Vectores Propios---------
+            float eValues[3];
+            float eVectors[3][3];
+
+            EigenAnalysis< float >::Compute(inercia, eValues, eVectors);
+
+            // Sacando Matriz de Radios-------------------
+            float vecRadii[3];
+            vecRadii[0] = (float) sqrt((5 * (eValues[1] + eValues[2] - eValues[0]) / (2 * cp->nCant)));
+            vecRadii[1] = (float) sqrt((5 * (eValues[0] + eValues[2] - eValues[1]) / (2 * cp->nCant)));
+            vecRadii[2] = (float) sqrt((5 * (eValues[0] + eValues[1] - eValues[2]) / (2 * cp->nCant)));
+
+	    ObjectView* obbox= View::AddEllipsoid(inercia,centro,vecRadii);
+        }
+      }
+      else
+      {
+        std::cout << "No objects found.";
+      }
+
+      ar = "";
+    }
     //-----------------Comando bbox-----------------------------
     if(!in.find("bbox"))
     {
@@ -452,11 +625,6 @@ int main( int argc, char* argv[] )
             maxs.push_back(ov->GetMaxZ());
 
             ObjectView* bbox = View::AddBoundingBox(mins, maxs);
-            Componente* cp = new Componente();
-            cp->name = "bbox" + ar;
-            cp->obj = bbox;
-            cp->nCant = cp->obj->getVertices().size();
-            Objects.push_back(cp);
           }
           else
           {
@@ -515,11 +683,6 @@ int main( int argc, char* argv[] )
           mins.push_back(minZ);
 
           ObjectView* bboxAll = View::AddBoundingBox(mins, maxs);
-          Componente* cp = new Componente();
-          cp->name = "bboxAll";
-          cp->obj = bboxAll;
-          cp->nCant = cp->obj->getVertices().size();
-          Objects.push_back(cp);
         }
       }
       else
@@ -692,11 +855,6 @@ int main( int argc, char* argv[] )
             }
 
             ObjectView* obbox = View::AddOrientedBoundingBox(puntsResp);
-            Componente* cp = new Componente();
-            cp->name = "obbox" + ar;
-            cp->obj = obbox;
-            cp->nCant = cp->obj->getVertices().size();
-            Objects.push_back(cp);
           }
           else
           {
@@ -842,11 +1000,6 @@ int main( int argc, char* argv[] )
           }
 
           ObjectView* obboxAll = View::AddOrientedBoundingBox(puntsResp);
-          Componente* cp = new Componente();
-          cp->name = "obboxAll";
-          cp->obj = obboxAll;
-          cp->nCant = cp->obj->getVertices().size();
-          Objects.push_back(cp);
         }
       }
       else

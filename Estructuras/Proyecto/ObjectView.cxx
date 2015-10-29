@@ -80,6 +80,13 @@ GetMaxZ( ) const
   return( this->m_MaxZ );
 }
 
+//--------------------------------------------------------------------------
+std::vector< float > ObjectView::
+getVertices( )
+{
+  return this->m_Vertices;
+}
+
 // -------------------------------------------------------------------------
 void ObjectView::
 ClearVertices( )

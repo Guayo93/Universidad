@@ -2,6 +2,7 @@
 #define __COMPONENTE__H__
 
 #include "ObjectView.h"
+#include "ArbolKD.h"
 #include <string>
 #include <fstream>
 #include <sstream>
@@ -19,7 +20,7 @@ class Componente
     std::string name;
     ObjectView* obj;
     int nCant;
-      
+    ArbolKD* puntos;
 };
 
 #include "Componente.hxx"
