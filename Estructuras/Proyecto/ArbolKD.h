@@ -16,8 +16,8 @@ class ArbolKD
     void setRaiz( NodoKD* nR );
     bool insertarNodo( float x, float y, float z );
     bool eliminarNodo( float x, float y, float z );
-    NodoKD buscarNodo( float x, float y, float z );
-    NodoKD buscarVecinoMasCercano( float x, float y, float z );
+    NodoKD* buscarNodo( float x, float y, float z );
+    NodoKD* buscarVecinoMasCercano( float x, float y, float z );
     std::vector< NodoKD* > buscarNodosRango( float x1, float x2, float y1, float y2, float z1, float z2 );
     void recorridoPreOrden();
     void recorridoInOrden();

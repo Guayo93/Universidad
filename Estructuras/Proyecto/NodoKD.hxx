@@ -167,7 +167,7 @@ NodoKD* NodoKD::buscarNodo( Point p )
         n = this->der->buscarNodo(p);
     }
 
-    return p;
+    return n;
 }
 
 NodoKD* buscarVecinoMasCercano( NodoKD* n );

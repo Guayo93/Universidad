@@ -3,67 +3,52 @@
 #include "Componente.h"
 #include "ObjectView.h"
 #include "View.h"
+#include "ArbolKD.h"
+#include "NodoKD.h"
+#include <queue>
 #include <fstream>
 
-float calcularPuntoDiagonal(std::vector< float > verts, char eje1, char eje2)
+float calcularPuntoDiagonal(std::vector< NodoKD* > punts, char eje1, char eje2)
 {
   std::vector< float > ps1;
   std::vector< float > ps2;
-  std::vector< float >::iterator it = verts.begin();
+  std::vector< NodoKD* >::iterator it = punts.begin();
   float prom1 = 0, prom2 = 0;
   int i = 0;
 
-  for(; it != verts.end(); it++)
+  for(; it != punts.end(); it++)
   {
     if(eje1 == 'x')
     {
-      if(i % 3 == 0)
-      {
-        ps1.push_back(*it);
-        prom1 += *it;
-      }
+      ps1.push_back((*it)->darPoint().x);
+      prom1 += (*it)->darPoint().x;
     }
     else if(eje2 == 'x')
     {
-      if(i % 3 == 0)
-      {
-        ps2.push_back(*it);
-        prom2 += *it;
-      }
+      ps2.push_back((*it)->darPoint().x);
+      prom2 += (*it)->darPoint().x;
     }
 
     if(eje1 == 'y')
     {
-      if(i % 3 == 1)
-      {
-        ps1.push_back(*it);
-        prom1 += *it;
-      }
+      ps1.push_back((*it)->darPoint().y);
+      prom1 += (*it)->darPoint().y;
     }
     else if(eje2 == 'y')
     {
-      if(i % 3 == 1)
-      {
-        ps2.push_back(*it);
-        prom2 += *it;
-      }
+      ps2.push_back((*it)->darPoint().y);
+      prom2 += (*it)->darPoint().y;
     }
 
     if(eje1 == 'z')
     {
-      if(i % 3 == 2)
-      {
-        ps1.push_back(*it);
-        prom1 += *it;
-      }
+      ps1.push_back((*it)->darPoint().z);
+      prom1 += (*it)->darPoint().z;
     }
     else if(eje2 == 'z')
     {
-      if(i % 3 == 2)
-      {
-        ps2.push_back(*it);
-        prom2 += *it;
-      }
+      ps2.push_back((*it)->darPoint().z);
+      prom2 += (*it)->darPoint().z;
     }
 
     i++;
@@ -73,77 +58,59 @@ float calcularPuntoDiagonal(std::vector< float > verts, char eje1, char eje2)
   prom2 /= ps2.size();
 
   float suma = 0;
-  it = ps1.begin();
-  std::vector< float >::iterator it2 = ps2.begin();
+  std::vector< float >::iterator it2 = ps1.begin();
+  std::vector< float >::iterator it3 = ps2.begin();
 
-  for(; it != ps1.end(); it++)
+  for(; it2 != ps1.end(); it2++)
   {
-    suma += ((*it - prom1) * (*it - prom1)) + ((*it2 - prom2) * (*it2 - prom2));
-    it2++;
+    suma += ((*it2 - prom1) * (*it2 - prom1)) + ((*it3 - prom2) * (*it3 - prom2));
+    it3++;
   }
 
   return suma;
 }
 
-float calcularPuntoNoDiagonal(std::vector< float> verts, char eje1, char eje2)
+float calcularPuntoNoDiagonal(std::vector< NodoKD* > punts, char eje1, char eje2)
 {
   std::vector< float > ps1;
   std::vector< float > ps2;
-  std::vector< float >::iterator it = verts.begin();
+  std::vector< NodoKD* >::iterator it = punts.begin();
   float prom1 = 0, prom2 = 0;
   int i = 0;
 
-  for(; it != verts.end(); it++)
+  for(; it != punts.end(); it++)
   {
     if(eje1 == 'x')
     {
-      if(i % 3 == 0)
-      {
-        ps1.push_back(*it);
-        prom1 += *it;
-      }
+      ps1.push_back((*it)->darPoint().x);
+      prom1 += (*it)->darPoint().x;
     }
     else if(eje2 == 'x')
     {
-      if(i % 3 == 0)
-      {
-        ps2.push_back(*it);
-        prom2 += *it;
-      }
+      ps2.push_back((*it)->darPoint().x);
+      prom2 += (*it)->darPoint().x;
     }
 
     if(eje1 == 'y')
     {
-      if(i % 3 == 1)
-      {
-        ps1.push_back(*it);
-        prom1 += *it;
-      }
+      ps1.push_back((*it)->darPoint().y);
+      prom1 += (*it)->darPoint().y;
     }
     else if(eje2 == 'y')
     {
-      if(i % 3 == 1)
-      {
-        ps2.push_back(*it);
-        prom2 += *it;
-      }
+      ps2.push_back((*it)->darPoint().y);
+      prom2 += (*it)->darPoint().y;
     }
 
     if(eje1 == 'z')
     {
-      if(i % 3 == 2)
-      {
-        ps1.push_back(*it);
-        prom1 += *it;
-      }
+      ps1.push_back((*it)->darPoint().z);
+      prom1 += (*it)->darPoint().z;
     }
     else if(eje2 == 'z')
     {
-      if(i % 3 == 2)
-      {
-        ps2.push_back(*it);
-        prom2 += *it;
-      }
+      ps2.push_back((*it)->darPoint().z);
+      prom2 += (*it)->darPoint().z;
     }
 
     i++;
@@ -153,13 +120,13 @@ float calcularPuntoNoDiagonal(std::vector< float> verts, char eje1, char eje2)
   prom2 /= ps2.size();
 
   float suma = 0;
-  it = ps1.begin();
-  std::vector< float >::iterator it2 = ps2.begin();
+  std::vector< float >::iterator it2 = ps1.begin();
+  std::vector< float >::iterator it3 = ps2.begin();
 
-  for(; it != ps1.end(); it++)
+  for(; it2 != ps1.end(); it2++)
   {
-    suma += ((*it - prom1) * (*it2 - prom2));
-    it2++;
+    suma += ((*it2 - prom1) * (*it3 - prom2));
+    it3++;
   }
   suma=suma*-1;
   return suma;
@@ -237,8 +204,8 @@ int main( int argc, char* argv[] )
     }
     if(!(*input))
     {
-       std::cerr<<"Error en la validacion de la entrada."<<std::endl;
-       return(-1);
+      std::cerr<<"Error en la validacion de la entrada."<<std::endl;
+      return(-1);
     }
     std::getline(*input, in);
 
@@ -268,10 +235,10 @@ int main( int argc, char* argv[] )
           }
           else
           {
-             std::string num;
-             num += *it; std::stringstream s2(num); s2>>r;it++;num="";
-             num += *it; std::stringstream s3(num); s3>>g;it++;it++;num="";
-             num += *it; std::stringstream s4(num); s4>>b;num="";
+            std::string num;
+            num += *it; std::stringstream s2(num); s2>>r;it++;num="";
+            num += *it; std::stringstream s3(num); s3>>g;it++;it++;num="";
+            num += *it; std::stringstream s4(num); s4>>b;num="";
           }
         }
         if(it != in.end())it++;
@@ -364,7 +331,7 @@ int main( int argc, char* argv[] )
         if(in.find("load") != std::string::npos)
         {
           std::cout << "load --> Carga en memoria los datos contenidos en el archivo identificado por <filename>."  << std::endl <<
-            "load <filename>" << std::endl;
+          "load <filename>" << std::endl;
         }
 
         if(in.find("list") != std::string::npos)
@@ -375,33 +342,33 @@ int main( int argc, char* argv[] )
         if(in.find("unload") != std::string::npos)
         {
           std::cout << "unload --> Descarga de la memoria el objeto identificado con el nombre dado" << std::endl <<
-            "unload <object_name>" << std::endl;
+          "unload <object_name>" << std::endl;
         }
 
         if(in.find("bbox") != std::string::npos)
         {
           std::cout << "bbox --> Calcula la caja envolvente." << std::endl <<
-            "bbox <object_name> --> bbox especifica." << std::endl <<
-            "bbox --> bbox de todos los objetos cargados en memoria." << std::endl;
+          "bbox <object_name> --> bbox especifica." << std::endl <<
+          "bbox --> bbox de todos los objetos cargados en memoria." << std::endl;
         }
 
         if(in.find("obbox") != std::string::npos)
         {
           std::cout << "obbox --> Calcula la caja envolvente orientada." << std::endl <<
-            "obbox <object_name> --> bbox especifica." << std::endl <<
-            "obbox --> obbox de todos los objetos cargados en memoria." << std::endl;
+          "obbox <object_name> --> bbox especifica." << std::endl <<
+          "obbox --> obbox de todos los objetos cargados en memoria." << std::endl;
         }
       }
       else
       {
         std::cout << "Commands list:" << std::endl <<
-          "load" << std::endl << "list" << std::endl <<
-          "unload" << std::endl << "bbox" << std::endl <<
-          "obbox" << std::endl << "ellipsoid" << std::endl;
+        "load" << std::endl << "list" << std::endl <<
+        "unload" << std::endl << "bbox" << std::endl <<
+        "obbox" << std::endl << "ellipsoid" << std::endl;
       }
     }
     //----------------------Comando ellipsoid------------------------------
-if(!in.find("ellipsoid"))
+    if(!in.find("ellipsoid"))
     {
       if(!Objects.empty())
       {
@@ -430,127 +397,70 @@ if(!in.find("ellipsoid"))
             if(cp->name == ar)
             {
               enc = true;
-          if(pos < Objects.size())
-          {
-            std::vector< float > verts = cp->obj->getVertices();
-            std::vector< float >::iterator it = verts.begin();
-
-            // Sacando Centro-------------------
-            float centro[3];
-            float promX = 0, promY = 0, promZ = 0;
-
-            for(int i = 0; it != verts.end(); it++)
-            {
-              if(i % 3 == 0)
-              {
-                promX += *it;
-              }
-              else if(i % 3 == 1)
-              {
-                promY += *it;
-              }
-              else
-              {
-                promZ += *it;
-              }
-            }
-
-            centro[0] = promX / (verts.size() / 3);
-            centro[1] = promY / (verts.size() / 3);
-            centro[2] = promZ / (verts.size() / 3);
-
-            // Sacando Matriz de Inercia----------------
-            float inercia[3][3];
-            inercia[0][0] = calcularPuntoDiagonal(verts, 'y', 'z');
-            inercia[0][1] = calcularPuntoNoDiagonal(verts, 'x', 'y');
-            inercia[0][2] = calcularPuntoNoDiagonal(verts, 'x', 'z');
-            inercia[1][0] = calcularPuntoNoDiagonal(verts, 'x', 'y');
-            inercia[1][1] = calcularPuntoDiagonal(verts, 'x', 'z');
-            inercia[1][2] = calcularPuntoNoDiagonal(verts, 'y', 'z');
-            inercia[2][0] = calcularPuntoNoDiagonal(verts, 'x', 'z');
-            inercia[2][1] = calcularPuntoNoDiagonal(verts, 'y', 'z');
-            inercia[2][2] = calcularPuntoDiagonal(verts, 'x', 'y');
-
-            // Sacando Valores y Vectores Propios---------
-            float eValues[3];
-            float eVectors[3][3];
-
-            EigenAnalysis< float >::Compute(inercia, eValues, eVectors);
-
-            // Sacando Matriz de Radios-------------------
-            float vecRadii[3];
-            vecRadii[0] = (float) sqrt((5 * (eValues[1] + eValues[2] - eValues[0]) / (2 * cp->nCant)));
-            vecRadii[1] = (float) sqrt((5 * (eValues[0] + eValues[2] - eValues[1]) / (2 * cp->nCant)));
-            vecRadii[2] = (float) sqrt((5 * (eValues[0] + eValues[1] - eValues[2]) / (2 * cp->nCant)));
-
-	    ObjectView* obbox= View::AddEllipsoid(inercia,centro,vecRadii);
-          }
-          else
-          {
-            std::cout << ar << " does not exist." << std::endl;
-          }
             }
             else
             {
               pos++;
             }
           }
-        }
-//-----------------------ellipsoid all--------
-        else
-        {
-          std::list< Componente* >::iterator it = Objects.begin();
-          Componente* cp=*it;
-	  int mayor=0;
-	  for(; it!=Objects.end();it++){
-	    cp=*it;
-	    if(cp->obj->getVertices().size()>mayor){
-	      mayor=cp->obj->getVertices().size();
-	    }
-	  }
-	  it=Objects.begin();
-	  for(; it!=Objects.end();it++){
-	    if(mayor==cp->obj->getVertices().size())
-              cp=*it;
-	  }
-	  std::vector< float > verts = cp->obj->getVertices();
-          std::vector< float >::iterator it2 = verts.begin();
-// Sacando Centro-------------------
-            float centro[3];
-            float promX = 0, promY = 0, promZ = 0;
 
-            for(int i = 0; it2 != verts.end(); it2++)
+          if(pos < Objects.size())
+          {
+            std::vector< NodoKD* > recLvls;
+            std::queue< NodoKD* > cola;
+            NodoKD* nAux = cp->puntos->darRaiz();
+
+            //Recorrido por niveles---------------------------
+            if(nAux != NULL)
             {
-              if(i % 3 == 0)
+              cola.push(nAux);
+
+              while(!cola.empty())
               {
-                promX += *it2;
-              }
-              else if(i % 3 == 1)
-              {
-                promY += *it2;
-              }
-              else
-              {
-                promZ += *it2;
+                nAux = cola.front();
+                recLvls.push_back(nAux);
+                cola.pop();
+
+                if(nAux->darIzquierdo() != NULL)
+                {
+                  cola.push(nAux->darIzquierdo());
+                }
+
+                if(nAux->darDerecho() != NULL)
+                {
+                  cola.push(nAux->darDerecho());
+                }
               }
             }
 
-            centro[0] = promX / (verts.size() / 3);
-            centro[1] = promY / (verts.size() / 3);
-            centro[2] = promZ / (verts.size() / 3);
+            std::vector< NodoKD* >::iterator it = recLvls.begin();
 
+            // Sacando Centro-------------------
+            float centro[3];
+            float promX = 0, promY = 0, promZ = 0;
+
+            for(int i = 0; it != recLvls.end(); it++)
+            {
+              promX += (*it)->darPoint().x;
+              promY += (*it)->darPoint().y;
+              promZ += (*it)->darPoint().z;
+            }
+
+            centro[0] = promX / recLvls.size();
+            centro[1] = promY / recLvls.size();
+            centro[2] = promZ / recLvls.size();
 
             // Sacando Matriz de Inercia----------------
             float inercia[3][3];
-            inercia[0][0] = calcularPuntoDiagonal(verts, 'y', 'z');
-            inercia[0][1] = calcularPuntoNoDiagonal(verts, 'x', 'y');
-            inercia[0][2] = calcularPuntoNoDiagonal(verts, 'x', 'z');
-            inercia[1][0] = calcularPuntoNoDiagonal(verts, 'x', 'y');
-            inercia[1][1] = calcularPuntoDiagonal(verts, 'x', 'z');
-            inercia[1][2] = calcularPuntoNoDiagonal(verts, 'y', 'z');
-            inercia[2][0] = calcularPuntoNoDiagonal(verts, 'x', 'z');
-            inercia[2][1] = calcularPuntoNoDiagonal(verts, 'y', 'z');
-            inercia[2][2] = calcularPuntoDiagonal(verts, 'x', 'y');
+            inercia[0][0] = calcularPuntoDiagonal(recLvls, 'y', 'z');
+            inercia[0][1] = calcularPuntoNoDiagonal(recLvls, 'x', 'y');
+            inercia[0][2] = calcularPuntoNoDiagonal(recLvls, 'x', 'z');
+            inercia[1][0] = calcularPuntoNoDiagonal(recLvls, 'x', 'y');
+            inercia[1][1] = calcularPuntoDiagonal(recLvls, 'x', 'z');
+            inercia[1][2] = calcularPuntoNoDiagonal(recLvls, 'y', 'z');
+            inercia[2][0] = calcularPuntoNoDiagonal(recLvls, 'x', 'z');
+            inercia[2][1] = calcularPuntoNoDiagonal(recLvls, 'y', 'z');
+            inercia[2][2] = calcularPuntoDiagonal(recLvls, 'x', 'y');
 
             // Sacando Valores y Vectores Propios---------
             float eValues[3];
@@ -564,7 +474,92 @@ if(!in.find("ellipsoid"))
             vecRadii[1] = (float) sqrt((5 * (eValues[0] + eValues[2] - eValues[1]) / (2 * cp->nCant)));
             vecRadii[2] = (float) sqrt((5 * (eValues[0] + eValues[1] - eValues[2]) / (2 * cp->nCant)));
 
-	    ObjectView* obbox= View::AddEllipsoid(inercia,centro,vecRadii);
+            ObjectView* ellipsoid = View::AddEllipsoid(inercia,centro,vecRadii);
+          }
+          else
+          {
+            std::cout << ar << " does not exist." << std::endl;
+          }
+        }
+        //-----------------------ellipsoid all--------
+        else
+        {
+          std::vector< NodoKD* > punts;
+          std::list< Componente* >::iterator it2 = Objects.begin();
+
+          for(; it2 != Objects.end(); it2++)
+          {
+            ArbolKD* akd = (*it2)->puntos;
+
+            std::queue< NodoKD* > cola;
+            NodoKD* nAux = akd->darRaiz();
+
+            //Recorrido por niveles---------------------------
+            if(nAux != NULL)
+            {
+              cola.push(nAux);
+
+              while(!cola.empty())
+              {
+                nAux = cola.front();
+                punts.push_back(nAux);
+                cola.pop();
+
+                if(nAux->darIzquierdo() != NULL)
+                {
+                  cola.push(nAux->darIzquierdo());
+                }
+
+                if(nAux->darDerecho() != NULL)
+                {
+                  cola.push(nAux->darDerecho());
+                }
+              }
+            }
+          }
+
+          std::vector< NodoKD* >::iterator it = punts.begin();
+
+          // Sacando Centro-------------------
+          float centro[3];
+          float promX = 0, promY = 0, promZ = 0;
+
+          for(int i = 0; it != punts.end(); it++)
+          {
+            promX += (*it)->darPoint().x;
+            promY += (*it)->darPoint().y;
+            promZ += (*it)->darPoint().z;
+          }
+
+          centro[0] = promX / punts.size();
+          centro[1] = promY / punts.size();
+          centro[2] = promZ / punts.size();
+
+          // Sacando Matriz de Inercia----------------
+          float inercia[3][3];
+          inercia[0][0] = calcularPuntoDiagonal(punts, 'y', 'z');
+          inercia[0][1] = calcularPuntoNoDiagonal(punts, 'x', 'y');
+          inercia[0][2] = calcularPuntoNoDiagonal(punts, 'x', 'z');
+          inercia[1][0] = calcularPuntoNoDiagonal(punts, 'x', 'y');
+          inercia[1][1] = calcularPuntoDiagonal(punts, 'x', 'z');
+          inercia[1][2] = calcularPuntoNoDiagonal(punts, 'y', 'z');
+          inercia[2][0] = calcularPuntoNoDiagonal(punts, 'x', 'z');
+          inercia[2][1] = calcularPuntoNoDiagonal(punts, 'y', 'z');
+          inercia[2][2] = calcularPuntoDiagonal(punts, 'x', 'y');
+
+          // Sacando Valores y Vectores Propios---------
+          float eValues[3];
+          float eVectors[3][3];
+
+          EigenAnalysis< float >::Compute(inercia, eValues, eVectors);
+
+          // Sacando Matriz de Radios-------------------
+          float vecRadii[3];
+          vecRadii[0] = (float) sqrt((5 * (eValues[1] + eValues[2] - eValues[0]) / (2 * punts.size())));
+          vecRadii[1] = (float) sqrt((5 * (eValues[0] + eValues[2] - eValues[1]) / (2 * punts.size())));
+          vecRadii[2] = (float) sqrt((5 * (eValues[0] + eValues[1] - eValues[2]) / (2 * punts.size())));
+
+          ObjectView* obbox= View::AddEllipsoid(inercia,centro,vecRadii);
         }
       }
       else
@@ -732,44 +727,61 @@ if(!in.find("ellipsoid"))
 
           if(pos < Objects.size())
           {
-            std::vector< float > verts = cp->obj->getVertices();
-            std::vector< float >::iterator it = verts.begin();
+            std::vector< NodoKD* > recLvls;
+            std::queue< NodoKD* > cola;
+            NodoKD* nAux = cp->puntos->darRaiz();
+
+            //Recorrido por niveles---------------------------
+            if(nAux != NULL)
+            {
+              cola.push(nAux);
+
+              while(!cola.empty())
+              {
+                nAux = cola.front();
+                recLvls.push_back(nAux);
+                cola.pop();
+
+                if(nAux->darIzquierdo() != NULL)
+                {
+                  cola.push(nAux->darIzquierdo());
+                }
+
+                if(nAux->darDerecho() != NULL)
+                {
+                  cola.push(nAux->darDerecho());
+                }
+              }
+            }
+
+            std::vector< NodoKD* >::iterator it = recLvls.begin();
 
             // Sacando Centro-------------------
             float centro[3];
             float promX = 0, promY = 0, promZ = 0;
 
-            for(int i = 0; it != verts.end(); it++)
+            for(int i = 0; it != recLvls.end(); it++)
             {
-              if(i % 3 == 0)
-              {
-                promX += *it;
-              }
-              else if(i % 3 == 1)
-              {
-                promY += *it;
-              }
-              else
-              {
-                promZ += *it;
-              }
+              promX += (*it)->darPoint().x;
+              promY += (*it)->darPoint().y;
+              promZ += (*it)->darPoint().z;
             }
 
-            centro[0] = promX / (verts.size() / 3);
-            centro[1] = promY / (verts.size() / 3);
-            centro[2] = promZ / (verts.size() / 3);
+            centro[0] = promX / recLvls.size();
+            centro[1] = promY / recLvls.size();
+            centro[2] = promZ / recLvls.size();
 
             // Sacando Matriz de Inercia----------------
             float inercia[3][3];
-            inercia[0][0] = calcularPuntoDiagonal(verts, 'y', 'z');
-            inercia[0][1] = calcularPuntoNoDiagonal(verts, 'x', 'y');
-            inercia[0][2] = calcularPuntoNoDiagonal(verts, 'x', 'z');
-            inercia[1][0] = calcularPuntoNoDiagonal(verts, 'x', 'y');
-            inercia[1][1] = calcularPuntoDiagonal(verts, 'x', 'z');
-            inercia[1][2] = calcularPuntoNoDiagonal(verts, 'y', 'z');
-            inercia[2][0] = calcularPuntoNoDiagonal(verts, 'x', 'z');
-            inercia[2][1] = calcularPuntoNoDiagonal(verts, 'y', 'z');
-            inercia[2][2] = calcularPuntoDiagonal(verts, 'x', 'y');
+            inercia[0][0] = calcularPuntoDiagonal(recLvls, 'y', 'z');
+            inercia[0][1] = calcularPuntoNoDiagonal(recLvls, 'x', 'y');
+            inercia[0][2] = calcularPuntoNoDiagonal(recLvls, 'x', 'z');
+            inercia[1][0] = calcularPuntoNoDiagonal(recLvls, 'x', 'y');
+            inercia[1][1] = calcularPuntoDiagonal(recLvls, 'x', 'z');
+            inercia[1][2] = calcularPuntoNoDiagonal(recLvls, 'y', 'z');
+            inercia[2][0] = calcularPuntoNoDiagonal(recLvls, 'x', 'z');
+            inercia[2][1] = calcularPuntoNoDiagonal(recLvls, 'y', 'z');
+            inercia[2][2] = calcularPuntoDiagonal(recLvls, 'x', 'y');
 
             // Sacando Valores y Vectores Propios---------
             float eValues[3];
@@ -829,7 +841,7 @@ if(!in.find("ellipsoid"))
 
             // Aplicacion Transformacion-----------------------
 
-              // Producto R y rs--------
+            // Producto R y rs--------
             float matProd[3][3];
             matProd[0][0] = (eVectors[0][0] * matRadii[0][0]) + (eVectors[0][1] * matRadii[1][0]) + (eVectors[0][2] * matRadii[2][0]);
             matProd[0][1] = (eVectors[0][0] * matRadii[0][1]) + (eVectors[0][1] * matRadii[1][1]) + (eVectors[0][2] * matRadii[2][1]);
@@ -841,7 +853,7 @@ if(!in.find("ellipsoid"))
             matProd[2][1] = (eVectors[2][0] * matRadii[0][1]) + (eVectors[2][1] * matRadii[1][1]) + (eVectors[2][2] * matRadii[2][1]);
             matProd[2][2] = (eVectors[2][0] * matRadii[0][2]) + (eVectors[2][1] * matRadii[1][2]) + (eVectors[2][2] * matRadii[2][2]);
 
-              // Producto xyz con matProd y suma con el centro
+            // Producto xyz con matProd y suma con el centro
             std::vector< float > puntsResp[8];
             for(int  i = 0; i < 8; i++)
             {
@@ -864,57 +876,68 @@ if(!in.find("ellipsoid"))
         else
         {
           //obbox ALL -------------------------------------------------------------
-          std::vector< float > vertis;
+          std::vector< NodoKD* > punts;
           std::list< Componente* >::iterator it2 = Objects.begin();
 
-          int mayor = 0;
           for(; it2 != Objects.end(); it2++)
           {
-            Componente* cp = *it2;
-            if(cp->obj->getVertices().size() > mayor)
+            ArbolKD* akd = (*it2)->puntos;
+
+            std::queue< NodoKD* > cola;
+            NodoKD* nAux = akd->darRaiz();
+
+            //Recorrido por niveles---------------------------
+            if(nAux != NULL)
             {
-              mayor = cp->obj->getVertices().size();
-              vertis = cp->obj->getVertices();
+              cola.push(nAux);
+
+              while(!cola.empty())
+              {
+                nAux = cola.front();
+                punts.push_back(nAux);
+                cola.pop();
+
+                if(nAux->darIzquierdo() != NULL)
+                {
+                  cola.push(nAux->darIzquierdo());
+                }
+
+                if(nAux->darDerecho() != NULL)
+                {
+                  cola.push(nAux->darDerecho());
+                }
+              }
             }
           }
 
-          std::vector< float >::iterator it = vertis.begin();
+          std::vector< NodoKD* >::iterator it = punts.begin();
 
           // Sacando Centro-------------------
           float centro[3];
           float promX = 0, promY = 0, promZ = 0;
 
-          for(int i = 0; it != vertis.end(); it++)
+          for(int i = 0; it != punts.end(); it++)
           {
-            if(i % 3 == 0)
-            {
-              promX += *it;
-            }
-            else if(i % 3 == 1)
-            {
-              promY += *it;
-            }
-            else
-            {
-              promZ += *it;
-            }
+            promX += (*it)->darPoint().x;
+            promY += (*it)->darPoint().y;
+            promZ += (*it)->darPoint().z;
           }
 
-          centro[0] = promX / (vertis.size() / 3);
-          centro[1] = promY / (vertis.size() / 3);
-          centro[2] = promZ / (vertis.size() / 3);
+          centro[0] = promX / punts.size();
+          centro[1] = promY / punts.size();
+          centro[2] = promZ / punts.size();
 
           // Sacando Matriz de Inercia----------------
           float inercia[3][3];
-          inercia[0][0] = calcularPuntoDiagonal(vertis, 'y', 'z');
-          inercia[0][1] = calcularPuntoNoDiagonal(vertis, 'x', 'y');
-          inercia[0][2] = calcularPuntoNoDiagonal(vertis, 'x', 'z');
-          inercia[1][0] = calcularPuntoNoDiagonal(vertis, 'x', 'y');
-          inercia[1][1] = calcularPuntoDiagonal(vertis, 'x', 'z');
-          inercia[1][2] = calcularPuntoNoDiagonal(vertis, 'y', 'z');
-          inercia[2][0] = calcularPuntoNoDiagonal(vertis, 'x', 'z');
-          inercia[2][1] = calcularPuntoNoDiagonal(vertis, 'y', 'z');
-          inercia[2][2] = calcularPuntoDiagonal(vertis, 'x', 'y');
+          inercia[0][0] = calcularPuntoDiagonal(punts, 'y', 'z');
+          inercia[0][1] = calcularPuntoNoDiagonal(punts, 'x', 'y');
+          inercia[0][2] = calcularPuntoNoDiagonal(punts, 'x', 'z');
+          inercia[1][0] = calcularPuntoNoDiagonal(punts, 'x', 'y');
+          inercia[1][1] = calcularPuntoDiagonal(punts, 'x', 'z');
+          inercia[1][2] = calcularPuntoNoDiagonal(punts, 'y', 'z');
+          inercia[2][0] = calcularPuntoNoDiagonal(punts, 'x', 'z');
+          inercia[2][1] = calcularPuntoNoDiagonal(punts, 'y', 'z');
+          inercia[2][2] = calcularPuntoDiagonal(punts, 'x', 'y');
 
           // Sacando Valores y Vectores Propios---------
           float eValues[3];
@@ -924,9 +947,9 @@ if(!in.find("ellipsoid"))
 
           // Sacando Matriz de Radios-------------------
           float vecRadii[3];
-          vecRadii[0] = (float) sqrt((5 * (eValues[1] + eValues[2] - eValues[0]) / (2 * vertis.size())));
-          vecRadii[1] = (float) sqrt((5 * (eValues[0] + eValues[2] - eValues[1]) / (2 * vertis.size())));
-          vecRadii[2] = (float) sqrt((5 * (eValues[0] + eValues[1] - eValues[2]) / (2 * vertis.size())));
+          vecRadii[0] = (float) sqrt((5 * (eValues[1] + eValues[2] - eValues[0]) / (2 * punts.size())));
+          vecRadii[1] = (float) sqrt((5 * (eValues[0] + eValues[2] - eValues[1]) / (2 * punts.size())));
+          vecRadii[2] = (float) sqrt((5 * (eValues[0] + eValues[1] - eValues[2]) / (2 * punts.size())));
 
           float matRadii[3][3];
           matRadii[0][0] = vecRadii[0];
@@ -974,7 +997,7 @@ if(!in.find("ellipsoid"))
 
           // Aplicacion Transformacion-----------------------
 
-            // Producto R y rs--------
+          // Producto R y rs--------
           float matProd[3][3];
           matProd[0][0] = (eVectors[0][0] * matRadii[0][0]) + (eVectors[0][1] * matRadii[1][0]) + (eVectors[0][2] * matRadii[2][0]);
           matProd[0][1] = (eVectors[0][0] * matRadii[0][1]) + (eVectors[0][1] * matRadii[1][1]) + (eVectors[0][2] * matRadii[2][1]);
@@ -986,7 +1009,7 @@ if(!in.find("ellipsoid"))
           matProd[2][1] = (eVectors[2][0] * matRadii[0][1]) + (eVectors[2][1] * matRadii[1][1]) + (eVectors[2][2] * matRadii[2][1]);
           matProd[2][2] = (eVectors[2][0] * matRadii[0][2]) + (eVectors[2][1] * matRadii[1][2]) + (eVectors[2][2] * matRadii[2][2]);
 
-            // Producto xyz con matProd y suma con el centro
+          // Producto xyz con matProd y suma con el centro
           std::vector< float > puntsResp[8];
           for(int  i = 0; i < 8; i++)
           {

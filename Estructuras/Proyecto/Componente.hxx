@@ -30,12 +30,12 @@ load (std::string archivo)
     fe.seekg( 0, fe.end );
     unsigned long file_length = fe.tellg( );
     fe.seekg( 0, fe.beg );
-	char* file_buffer = new char[ file_length ];
-	fe.read( file_buffer, file_length );
-	fe.close();
+    char* file_buffer = new char[ file_length ];
+    fe.read( file_buffer, file_length );
+    fe.close();
 
-	std::istringstream file( file_buffer );
-	do
+    std::istringstream file( file_buffer );
+    do
     {
       std::getline( file, line );
       ar.push_back(line);
@@ -87,23 +87,23 @@ load (std::string archivo)
 
             if(it2 != line.end())it2++;
           }
-//std::cout<<std::endl;
+          //std::cout<<std::endl;
           it++;
         }
         if(cords.size() % 3 == 0)
         {
-		    itD = cords.begin();
-		    while( itD != cords.end() )
-		      {
-		        float cx,cy,cz;
-		        cx = *itD; if(itD != cords.end())itD++;
-		        cy = *itD; if(itD != cords.end())itD++;
-		        cz = *itD; if(itD != cords.end())itD++;
+          itD = cords.begin();
+          while( itD != cords.end() )
+          {
+            float cx,cy,cz;
+            cx = *itD; if(itD != cords.end())itD++;
+            cy = *itD; if(itD != cords.end())itD++;
+            cz = *itD; if(itD != cords.end())itD++;
 
-		        this->obj->AddVertex( cx, cy, cz );
+            this->obj->AddVertex( cx, cy, cz );
             this->puntos->insertarNodo(cx, cy, cz);
-		      }
-		      cords.push_back(1);
+          }
+          cords.push_back(1);
         }
       }
       else
@@ -153,7 +153,7 @@ load (std::string archivo)
         if(it != ar.end()) it++;
       }
     }
-   std::cout<<"Object "<< nam << " successfuly loaded from "<< archivo << "." <<std::endl;
+    std::cout<<"Object "<< nam << " successfuly loaded from "<< archivo << "." <<std::endl;
   }
   else
   {
