@@ -17,9 +17,5 @@ int main()
     std::cout << "Pre-Orden:" << std::endl;
     arbol->recorridoPreOrden();
 
-    std::cout << std::endl << "In-Orden:" << std::endl;
-    arbol->recorridoInOrden();
-
-    std::cout << std::endl << "Pos-Orden:" << std::endl;
-    arbol->recorridoPosOrden();
+    std::cout << std::endl << arbol->buscarVecinoMasCercano(92, 8, 50)->darPoint() << std::endl;
 }

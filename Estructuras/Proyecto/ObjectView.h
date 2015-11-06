@@ -20,7 +20,6 @@ public:
   const float& GetMaxX( ) const;
   const float& GetMaxY( ) const;
   const float& GetMaxZ( ) const;
-  std::vector< float > getVertices();
 
   void ClearVertices( );
   void AddVertex( const float& x, const float& y, const float& z );
@@ -33,7 +32,7 @@ public:
 
   void Draw( );
 
-public:
+protected:
   std::vector< float > m_Vertices;
   std::vector< unsigned short > m_Indices;
   std::vector< unsigned short > m_CellSizes;

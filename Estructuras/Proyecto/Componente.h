@@ -19,6 +19,7 @@ class Componente
   public:
     std::string name;
     ObjectView* obj;
+    char tag;
     int nCant;
     ArbolKD* puntos;
 };

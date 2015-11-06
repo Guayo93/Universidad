@@ -43,16 +43,22 @@ struct View
     const float& b = float( 1 )
     );
 
-  /*
-   * Add a bounding box between min and max
-   *
-   * Returns the newly added mesh. Memory management is now user's responsabilty.
-   */
-  template< class TVector >
-  static ObjectView* AddBoundingBox( const TVector& min, const TVector& max );
+  static void DeleteObject( ObjectView* o );
 
   /*
-   * Show an oriented bounding box. Points in pnts should be numbered as:
+   * Add a bounding box between min and max, with color (r, g, b)
+   *
+   * Returns the newly added mesh. Memory management is now user's responsability.
+   */
+  template< class TVector >
+  static ObjectView* AddBoundingBox( 
+    const TVector& min, const TVector& max, 
+    const float& r, const float& g, const float& b
+     );
+
+  /*
+   * Show an oriented bounding box with color (r, g, b).
+   * Points in pnts should be numbered as:
    *
    *                 p4-----p7
    *                /.     /|
@@ -63,19 +69,34 @@ struct View
    *              |'     |/
    *              p1---- p2
    *
-   * Returns the newly added mesh. Memory management is now user's responsabilty.
+   * Returns the newly added mesh. Memory management is now user's responsability.
    */
    template< class TVector >
-  static ObjectView* AddOrientedBoundingBox( TVector pnts[ 8 ] );
+  static ObjectView* AddOrientedBoundingBox( 
+    TVector pnts[ 8 ], 
+    const float& r, const float& g, const float& b
+     );
 
   /*
-   * Show an ellipsoid centered in mean, with radii and rotation pm.
+   * Show an ellipsoid centered in mean, with radii, rotation pm and color (r, g, b).
    *
-   * Returns the newly added mesh. Memory management is now user's responsabilty.
+   * Returns the newly added mesh. Memory management is now user's responsability.
    */
   template< class TMatrix, class TVector >
   static ObjectView* AddEllipsoid(
-    const TMatrix& pm, const TVector& mean, const TVector& radii
+    const TMatrix& pm, const TVector& mean, const TVector& radii, 
+    const float& r, const float& g, const float& b
+    );
+
+  /*
+   * Show an sphere centered in mean with radii and color (r, g, b)
+   *
+   * Returns the newly added mesh. Memory management is now user's responsabilty.
+   */
+   template< class TVector >
+  static ObjectView* AddSphere( 
+    const TVector& mean, const double& radii, 
+    const float& r, const float& g, const float& b
     );
 
   static void DrawLoop( );

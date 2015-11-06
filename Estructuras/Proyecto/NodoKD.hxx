@@ -146,8 +146,6 @@ bool NodoKD::insertarNodo( NodoKD* n )
     }
 }
 
-bool eliminarNodo( NodoKD* n );
-
 NodoKD* NodoKD::buscarNodo( Point p )
 {
     NodoKD* n = NULL;
@@ -170,7 +168,37 @@ NodoKD* NodoKD::buscarNodo( Point p )
     return n;
 }
 
-NodoKD* buscarVecinoMasCercano( NodoKD* n );
+NodoKD* NodoKD::buscarPadre( Point p )
+{
+  NodoKD* n = NULL;
+
+  if(this->izq != NULL)
+  {
+    if(this->izq->darPoint() == p)
+    {
+      n = this;
+    }
+    else
+    {
+      n = this->izq->buscarPadre(p);
+    }
+  }
+
+  if(this->der != NULL && n == NULL)
+  {
+    if(this->der->darPoint() == p)
+    {
+      n = this;
+    }
+    else
+    {
+      n = this->der->buscarPadre(p);
+    }
+  }
+
+  return n;
+}
+
 std::vector< NodoKD > buscarNodosRango( std::vector< NodoKD* > vec, float x1, float x2, float y1, float y2, float z1, float z2 );
 
 void NodoKD::recorridoPreOrden()

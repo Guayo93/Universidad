@@ -6,7 +6,8 @@
 // -------------------------------------------------------------------------
 template< class TVector >
 ObjectView* View::
-AddBoundingBox( const TVector& min, const TVector& max )
+AddBoundingBox( const TVector& min, const TVector& max, 
+  const float& r, const float& g, const float& b )
 {
   ObjectView* bb = new ObjectView( );
   bb->AddVertex( min[ 0 ], min[ 1 ], min[ 2 ] );
@@ -24,14 +25,15 @@ AddBoundingBox( const TVector& min, const TVector& max )
   bb->AddCell( 4, 1, 5, 4, 0 );
   bb->AddCell( 4, 2, 3, 7, 6 );
 
-  View::AddObject( bb );
+  View::AddObject( bb, r, g, b );
   return( bb );
 }
 
 // -------------------------------------------------------------------------
 template< class TVector >
 ObjectView* View::
-AddOrientedBoundingBox( TVector pnts[ 8 ] )
+AddOrientedBoundingBox( TVector pnts[ 8 ], 
+  const float& r, const float& g, const float& b )
 {
   ObjectView* bb = new ObjectView( );
   bb->AddVertex( pnts[ 0 ][ 0 ], pnts[ 0 ][ 1 ], pnts[ 0 ][ 2 ] );
@@ -49,14 +51,15 @@ AddOrientedBoundingBox( TVector pnts[ 8 ] )
   bb->AddCell( 4, 1, 5, 4, 0 );
   bb->AddCell( 4, 2, 3, 7, 6 );
 
-  View::AddObject( bb );
+  View::AddObject( bb, r, g, b );
   return( bb );
 }
 
 // -------------------------------------------------------------------------
 template< class TMatrix, class TVector >
 ObjectView* View::
-AddEllipsoid( const TMatrix& pm, const TVector& mean, const TVector& radii )
+AddEllipsoid( const TMatrix& pm, const TVector& mean, const TVector& radii, 
+  const float& r, const float& g, const float& b )
 {
   ObjectView* sphere = new ObjectView( );
 
@@ -97,7 +100,27 @@ AddEllipsoid( const TMatrix& pm, const TVector& mean, const TVector& radii )
 
   } // rof
 
-  View::AddObject( sphere, 1, 0, 0 );
+  View::AddObject( sphere, r, g, b );
+  return( sphere );
+}
+
+// -------------------------------------------------------------------------
+template< class TVector >
+ObjectView* View::
+AddSphere( const TVector& mean, const double& radii, 
+  const float& r, const float& g, const float& b )
+{
+  double pm[ 3 ][ 3 ], rad[ 3 ];
+
+  pm[ 0 ][ 0 ] = 1.0; pm[ 0 ][ 1 ] = 0.0; pm[ 0 ][ 2 ] = 0.0;
+  pm[ 1 ][ 0 ] = 0.0; pm[ 1 ][ 1 ] = 1.0; pm[ 1 ][ 2 ] = 0.0;
+  pm[ 2 ][ 0 ] = 0.0; pm[ 2 ][ 1 ] = 0.0; pm[ 2 ][ 2 ] = 1.0;
+
+  rad[ 0 ] = radii;
+  rad[ 1 ] = radii;
+  rad[ 2 ] = radii;
+
+  ObjectView* sphere = View::AddEllipsoid( pm, mean, rad, r, g, b );
   return( sphere );
 }
 

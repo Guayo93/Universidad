@@ -23,9 +23,8 @@ class NodoKD
     char darTag();
     void setTag( char nT );
     bool insertarNodo( NodoKD* n );
-    bool eliminarNodo( NodoKD* n );
     NodoKD* buscarNodo( Point p );
-    NodoKD* buscarVecinoMasCercano( NodoKD* n );
+    NodoKD* buscarPadre( Point p );
     std::vector< NodoKD > buscarNodosRango( std::vector< NodoKD* > vec, float x1, float x2, float y1, float y2, float z1, float z2 );
     void recorridoPreOrden();
     void recorridoInOrden();

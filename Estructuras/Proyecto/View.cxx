@@ -167,6 +167,68 @@ AddObject(
 
 // -------------------------------------------------------------------------
 void View::
+DeleteObject( ObjectView* o )
+{
+  std::vector< ObjectView* >::iterator oIt = View::Objects.begin( );
+  bool finished = false;
+  while( !finished && oIt != View::Objects.end( ) )
+  {
+    if( *oIt == o )
+      finished = true;
+    else
+      oIt++;
+
+  } // elihw
+
+  if( oIt != View::Objects.end( ) )
+    View::Objects.erase( oIt );
+
+  for( unsigned int i = 0; i < View::Objects.size( ); ++i )
+  {
+    if( i > 0 )
+    {
+    View::MinX = ( View::Objects[ i ]->GetMinX( ) < View::MinX )?
+                 View::Objects[ i ]->GetMinX( ): View::MinX;
+    View::MaxX = ( View::Objects[ i ]->GetMaxX( ) > View::MaxX )?
+                 View::Objects[ i ]->GetMaxX( ): View::MaxX;
+
+    View::MinY = ( View::Objects[ i ]->GetMinY( ) < View::MinY )?
+                 View::Objects[ i ]->GetMinY( ): View::MinY;
+    View::MaxY = ( View::Objects[ i ]->GetMaxY( ) > View::MaxY )?
+                 View::Objects[ i ]->GetMaxY( ): View::MaxY;
+
+    View::MinZ = ( View::Objects[ i ]->GetMinZ( ) < View::MinZ )?
+                 View::Objects[ i ]->GetMinZ( ): View::MinZ;
+    View::MaxZ = ( View::Objects[ i ]->GetMaxZ( ) > View::MaxZ )?
+                 View::Objects[ i ]->GetMaxZ( ): View::MaxZ;
+    }
+    else
+    {
+    View::MinX = View::Objects[ i ]->GetMinX( );
+    View::MaxX = View::Objects[ i ]->GetMaxX( );
+
+    View::MinY = View::Objects[ i ]->GetMinY( );
+    View::MaxY = View::Objects[ i ]->GetMaxY( );
+
+    View::MinZ = View::Objects[ i ]->GetMinZ( );
+    View::MaxZ = View::Objects[ i ]->GetMaxZ( );
+    }
+  } // rof
+
+  float dx = View::MaxX - View::MinX;
+  float dy = View::MaxY - View::MinY;
+  float dz = View::MaxZ - View::MinZ;
+  View::CameraDistance =
+    std::sqrt( ( dx * dx ) + ( dy * dy ) + ( dz * dz ) );
+  View::CameraDistance *= double( 1.2 );
+
+  View::CameraCenterX = ( View::MaxX + View::MinX ) / float( 2 );
+  View::CameraCenterY = ( View::MaxY + View::MinY ) / float( 2 );
+  View::CameraCenterZ = ( View::MaxZ + View::MinZ ) / float( 2 );
+}
+
+// -------------------------------------------------------------------------
+void View::
 DrawLoop( )
 {
   try

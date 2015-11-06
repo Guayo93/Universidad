@@ -217,7 +217,8 @@ int main( int argc, char* argv[] )
     {
       std::string::iterator it=in.begin();
       bool enc = false;
-      float r=0, g=0, b=0;
+      char num ;
+      float r=1, g=1, b=1;
 
       while(it!=in.end() )
       {
@@ -235,12 +236,13 @@ int main( int argc, char* argv[] )
           }
           else
           {
-            std::string num;
-            num += *it; std::stringstream s2(num); s2>>r;it++;num="";
-            num += *it; std::stringstream s3(num); s3>>g;it++;it++;num="";
-            num += *it; std::stringstream s4(num); s4>>b;num="";
+
+            r = num -48;it++;
+            num = *it; g = num -48;it++;it++;
+            num = *it; b = num -48;
           }
         }
+        if(*it == '1' || *it == '0') num =*it;
         if(it != in.end())it++;
       }
       //std::cout<<ar<<std::endl;
@@ -474,7 +476,12 @@ int main( int argc, char* argv[] )
             vecRadii[1] = (float) sqrt((5 * (eValues[0] + eValues[2] - eValues[1]) / (2 * cp->nCant)));
             vecRadii[2] = (float) sqrt((5 * (eValues[0] + eValues[1] - eValues[2]) / (2 * cp->nCant)));
 
-            ObjectView* ellipsoid = View::AddEllipsoid(inercia,centro,vecRadii);
+            ObjectView* ellipsoid = View::AddEllipsoid(inercia,centro,vecRadii, 1, 0, 0);
+            Componente* comp = new Componente();
+            comp->obj = ellipsoid;
+            comp->name = "ellipsoid " + ar;
+            comp->tag = 'e';
+            Objects.push_back(comp);
           }
           else
           {
@@ -489,30 +496,33 @@ int main( int argc, char* argv[] )
 
           for(; it2 != Objects.end(); it2++)
           {
-            ArbolKD* akd = (*it2)->puntos;
-
-            std::queue< NodoKD* > cola;
-            NodoKD* nAux = akd->darRaiz();
-
-            //Recorrido por niveles---------------------------
-            if(nAux != NULL)
+            if((*it2)->tag != 'e')
             {
-              cola.push(nAux);
+              ArbolKD* akd = (*it2)->puntos;
 
-              while(!cola.empty())
+              std::queue< NodoKD* > cola;
+              NodoKD* nAux = akd->darRaiz();
+
+              //Recorrido por niveles---------------------------
+              if(nAux != NULL)
               {
-                nAux = cola.front();
-                punts.push_back(nAux);
-                cola.pop();
+                cola.push(nAux);
 
-                if(nAux->darIzquierdo() != NULL)
+                while(!cola.empty())
                 {
-                  cola.push(nAux->darIzquierdo());
-                }
+                  nAux = cola.front();
+                  punts.push_back(nAux);
+                  cola.pop();
 
-                if(nAux->darDerecho() != NULL)
-                {
-                  cola.push(nAux->darDerecho());
+                  if(nAux->darIzquierdo() != NULL)
+                  {
+                    cola.push(nAux->darIzquierdo());
+                  }
+
+                  if(nAux->darDerecho() != NULL)
+                  {
+                    cola.push(nAux->darDerecho());
+                  }
                 }
               }
             }
@@ -559,7 +569,12 @@ int main( int argc, char* argv[] )
           vecRadii[1] = (float) sqrt((5 * (eValues[0] + eValues[2] - eValues[1]) / (2 * punts.size())));
           vecRadii[2] = (float) sqrt((5 * (eValues[0] + eValues[1] - eValues[2]) / (2 * punts.size())));
 
-          ObjectView* obbox= View::AddEllipsoid(inercia,centro,vecRadii);
+          ObjectView* ellipsoid = View::AddEllipsoid(inercia,centro,vecRadii, 1, 0, 0);
+          Componente* comp = new Componente();
+          comp->obj = ellipsoid;
+          comp->name = "ellipsoid all";
+          comp->tag = 'e';
+          Objects.push_back(comp);
         }
       }
       else
@@ -591,10 +606,11 @@ int main( int argc, char* argv[] )
           bool enc = false;
 
           std::list< Componente* >::iterator it = Objects.begin();
+          Componente* cp = *it;
 
           for(; it != Objects.end() && enc == false;it++)
           {
-            Componente* cp = *it;
+            cp = *it;
             if(cp->name == ar)
             {
               enc = true;
@@ -619,7 +635,77 @@ int main( int argc, char* argv[] )
             maxs.push_back(ov->GetMaxY());
             maxs.push_back(ov->GetMaxZ());
 
-            ObjectView* bbox = View::AddBoundingBox(mins, maxs);
+            ObjectView* bbox = View::AddBoundingBox(mins, maxs, 0, 0 ,1);
+            Componente* comp = new Componente();
+            comp->obj = bbox;
+            comp->name = "bbox " + ar;
+            comp->tag = 'e';
+            Objects.push_back(comp);
+
+            NodoKD* pmc = cp->puntos->buscarVecinoMasCercano(mins[0], mins[1], mins[2]);
+
+            double meean[3];
+            meean[0] = (double) pmc->darPoint().x;
+            meean[1] = (double) pmc->darPoint().y;
+            meean[2] = (double) pmc->darPoint().z;
+
+            View::AddSphere(meean, 15, 1, 1, 0);
+
+            pmc = cp->puntos->buscarVecinoMasCercano(mins[0], mins[1], maxs[2]);
+
+            meean[0] = (double) pmc->darPoint().x;
+            meean[1] = (double) pmc->darPoint().y;
+            meean[2] = (double) pmc->darPoint().z;
+
+            View::AddSphere(meean, 15, 1, 1, 0);
+
+            pmc = cp->puntos->buscarVecinoMasCercano(mins[0], maxs[1], mins[2]);
+
+            meean[0] = (double) pmc->darPoint().x;
+            meean[1] = (double) pmc->darPoint().y;
+            meean[2] = (double) pmc->darPoint().z;
+
+            View::AddSphere(meean, 15, 1, 1, 0);
+
+            pmc = cp->puntos->buscarVecinoMasCercano(maxs[0], mins[1], mins[2]);
+
+            meean[0] = (double) pmc->darPoint().x;
+            meean[1] = (double) pmc->darPoint().y;
+            meean[2] = (double) pmc->darPoint().z;
+
+            View::AddSphere(meean, 15, 1, 1, 0);
+
+            pmc = cp->puntos->buscarVecinoMasCercano(maxs[0], maxs[1], mins[2]);
+
+            meean[0] = (double) pmc->darPoint().x;
+            meean[1] = (double) pmc->darPoint().y;
+            meean[2] = (double) pmc->darPoint().z;
+
+            View::AddSphere(meean, 15, 1, 1, 0);
+
+            pmc = cp->puntos->buscarVecinoMasCercano(maxs[0], mins[1], maxs[2]);
+
+            meean[0] = (double) pmc->darPoint().x;
+            meean[1] = (double) pmc->darPoint().y;
+            meean[2] = (double) pmc->darPoint().z;
+
+            View::AddSphere(meean, 15, 1, 1, 0);
+
+            pmc = cp->puntos->buscarVecinoMasCercano(mins[0], maxs[1], maxs[2]);
+
+            meean[0] = (double) pmc->darPoint().x;
+            meean[1] = (double) pmc->darPoint().y;
+            meean[2] = (double) pmc->darPoint().z;
+
+            View::AddSphere(meean, 15, 1, 1, 0);
+
+            pmc = cp->puntos->buscarVecinoMasCercano(maxs[0], maxs[1], maxs[2]);
+
+            meean[0] = (double) pmc->darPoint().x;
+            meean[1] = (double) pmc->darPoint().y;
+            meean[2] = (double) pmc->darPoint().z;
+
+            View::AddSphere(meean, 15, 1, 1, 0);
           }
           else
           {
@@ -628,44 +714,47 @@ int main( int argc, char* argv[] )
         }
         else
         {
-          std::vector< ObjectView* >::iterator it = View::Objects.begin();
-          ObjectView* ov = *it;
-          float minX = ov->GetMinX(), minY = ov->GetMinY(), minZ = ov->GetMinZ(), maxX = ov->GetMaxX(), maxY = ov->GetMaxY(), maxZ = ov->GetMaxZ();
+          std::list< Componente* >::iterator it = Objects.begin();
+          Componente* ov = *it;
+          float minX = ov->obj->GetMinX(), minY = ov->obj->GetMinY(), minZ = ov->obj->GetMinZ(), maxX = ov->obj->GetMaxX(), maxY = ov->obj->GetMaxY(), maxZ = ov->obj->GetMaxZ();
           std::vector< float > mins;
           std::vector< float > maxs;
 
-          for(; it != View::Objects.end(); it++)
+          for(; it != Objects.end(); it++)
           {
             ov = *it;
 
-            if(ov->GetMinX() < minX)
+            if(ov->tag != 'e')
             {
-              minX = ov->GetMinX();
-            }
+              if(ov->obj->GetMinX() < minX)
+              {
+                minX = ov->obj->GetMinX();
+              }
 
-            if(ov->GetMinY() < minY)
-            {
-              minY = ov->GetMinY();
-            }
+              if(ov->obj->GetMinY() < minY)
+              {
+                minY = ov->obj->GetMinY();
+              }
 
-            if(ov->GetMinZ() < minZ)
-            {
-              minZ = ov->GetMinZ();
-            }
+              if(ov->obj->GetMinZ() < minZ)
+              {
+                minZ = ov->obj->GetMinZ();
+              }
 
-            if(ov->GetMaxX() > maxX)
-            {
-              maxX = ov->GetMaxX();
-            }
+              if(ov->obj->GetMaxX() > maxX)
+              {
+                maxX = ov->obj->GetMaxX();
+              }
 
-            if(ov->GetMaxY() > maxY)
-            {
-              maxY = ov->GetMaxY();
-            }
+              if(ov->obj->GetMaxY() > maxY)
+              {
+                maxY = ov->obj->GetMaxY();
+              }
 
-            if(ov->GetMaxZ() > maxZ)
-            {
-              maxZ = ov->GetMaxZ();
+              if(ov->obj->GetMaxZ() > maxZ)
+              {
+                maxZ = ov->obj->GetMaxZ();
+              }
             }
           }
 
@@ -677,7 +766,12 @@ int main( int argc, char* argv[] )
           mins.push_back(minY);
           mins.push_back(minZ);
 
-          ObjectView* bboxAll = View::AddBoundingBox(mins, maxs);
+          ObjectView* bboxAll = View::AddBoundingBox(mins, maxs, 0, 0, 1);
+          Componente* comp = new Componente();
+          comp->obj = bboxAll;
+          comp->name = "bbox all";
+          comp->tag = 'e';
+          Objects.push_back(comp);
         }
       }
       else
@@ -866,7 +960,24 @@ int main( int argc, char* argv[] )
               puntsResp[i][2] += centro[2];
             }
 
-            ObjectView* obbox = View::AddOrientedBoundingBox(puntsResp);
+            ObjectView* obbox = View::AddOrientedBoundingBox(puntsResp, 0, 1, 0);
+            Componente* comp = new Componente();
+            comp->obj = obbox;
+            comp->name = "obbox " + ar;
+            comp->tag = 'e';
+            Objects.push_back(comp);
+
+            for(int i = 0; i < 8; i++)
+            {
+              NodoKD* pmc = cp->puntos->buscarVecinoMasCercano(puntsResp[i][0], puntsResp[i][1], puntsResp[i][2]);
+
+              double meean[3];
+              meean[0] = (double) pmc->darPoint().x;
+              meean[1] = (double) pmc->darPoint().y;
+              meean[2] = (double) pmc->darPoint().z;
+
+              View::AddSphere(meean, 3, 1, 1, 0);
+            }
           }
           else
           {
@@ -881,30 +992,33 @@ int main( int argc, char* argv[] )
 
           for(; it2 != Objects.end(); it2++)
           {
-            ArbolKD* akd = (*it2)->puntos;
-
-            std::queue< NodoKD* > cola;
-            NodoKD* nAux = akd->darRaiz();
-
-            //Recorrido por niveles---------------------------
-            if(nAux != NULL)
+            if((*it2)->tag != 'e')
             {
-              cola.push(nAux);
+              ArbolKD* akd = (*it2)->puntos;
 
-              while(!cola.empty())
+              std::queue< NodoKD* > cola;
+              NodoKD* nAux = akd->darRaiz();
+
+              //Recorrido por niveles---------------------------
+              if(nAux != NULL)
               {
-                nAux = cola.front();
-                punts.push_back(nAux);
-                cola.pop();
+                cola.push(nAux);
 
-                if(nAux->darIzquierdo() != NULL)
+                while(!cola.empty())
                 {
-                  cola.push(nAux->darIzquierdo());
-                }
+                  nAux = cola.front();
+                  punts.push_back(nAux);
+                  cola.pop();
 
-                if(nAux->darDerecho() != NULL)
-                {
-                  cola.push(nAux->darDerecho());
+                  if(nAux->darIzquierdo() != NULL)
+                  {
+                    cola.push(nAux->darIzquierdo());
+                  }
+
+                  if(nAux->darDerecho() != NULL)
+                  {
+                    cola.push(nAux->darDerecho());
+                  }
                 }
               }
             }
@@ -1022,7 +1136,12 @@ int main( int argc, char* argv[] )
             puntsResp[i][2] += centro[2];
           }
 
-          ObjectView* obboxAll = View::AddOrientedBoundingBox(puntsResp);
+          ObjectView* obboxAll = View::AddOrientedBoundingBox(puntsResp, 0, 1, 0);
+          Componente* comp = new Componente();
+          comp->obj = obboxAll;
+          comp->name = "obbox all";
+          comp->tag = 'e';
+          Objects.push_back(comp);
         }
       }
       else
