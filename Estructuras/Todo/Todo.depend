@@ -17,3 +17,35 @@
 
 1442561517 c:\users\cagua\documents\github\universidad\estructuras\tad arbol expresion\arbolex.hxx
 
+1446789788 source:/home/mcdraklin/Documents/Universidad/Estructuras/TAD Grafo/Prueba.cxx
+	<iostream>
+	"Grafo.h"
+
+1446788524 /home/mcdraklin/Documents/Universidad/Estructuras/TAD Grafo/Grafo.h
+	<vector>
+	"Vertice.h"
+	"Grafo.hxx"
+
+1446787663 /home/mcdraklin/Documents/Universidad/Estructuras/TAD Grafo/Vertice.h
+	<vector>
+	"Arista.h"
+	"Vertice.hxx"
+
+1446787295 /home/mcdraklin/Documents/Universidad/Estructuras/TAD Grafo/Arista.h
+	<vector>
+	"Vertice.h"
+	"Arista.hxx"
+
+1446788738 /home/mcdraklin/Documents/Universidad/Estructuras/TAD Grafo/Arista.hxx
+	<vector>
+	"Vertice.h"
+
+1446788822 /home/mcdraklin/Documents/Universidad/Estructuras/TAD Grafo/Vertice.hxx
+	<vector>
+	"Arista.h"
+
+1446789823 /home/mcdraklin/Documents/Universidad/Estructuras/TAD Grafo/Grafo.hxx
+	<vector>
+	"Vertice.h"
+	"Arista.h"
+
