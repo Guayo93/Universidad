@@ -1,13 +1,11 @@
 #include <vector>
-#include "Arista.h"
+#include <iostream>
 
 template< class T >
 Vertice< T >::Vertice()
 {
-  std::vector< Arista< T >* > preds;
-  std::vector< Arista< T >* > sus;
-  this->predecesores = preds;
-  this->sucesores = sus;
+  std::vector< Vertice< T >* > conexs;
+  this->conexiones = conexs;
 }
 
 template< class T >
@@ -29,27 +27,15 @@ void Vertice< T >::setInfo( T nInfo )
 }
 
 template< class T >
-std::vector< Arista< T >* > Vertice< T >::darPredecesores()
+std::vector< Vertice< T >* > Vertice< T >::darConexiones()
 {
-  return this->predecesores;
+  return this->conexiones;
 }
 
 template< class T >
-void Vertice< T >::setPredecesores( std::vector< Arista< T >* > nAris )
+void Vertice< T >::setConexiones( std::vector< Vertice< T >* > nAris )
 {
   this->predecesores = nAris;
-}
-
-template< class T >
-std::vector< Arista< T >* > Vertice< T >::darSucesores()
-{
-  return this->sucesores;
-}
-
-template< class T >
-void Vertice< T >::setSucesores( std::vector< Arista< T >* > nAris )
-{
-  this->sucesores = nAris;
 }
 
 template< class T >
@@ -71,28 +57,15 @@ void Vertice< T >::desmarcar()
 }
 
 template< class T >
-Arista< T >* Vertice< T >::buscarArista( T infOri, T infDes )
+Vertice< T >* Vertice< T >::buscarArista( T infDes )
 {
-  Arista< T >* a = NULL;
+  Vertice< T >* a = NULL;
 
-  for(int i = 0; i < predecesores.size(); i++)
+  for(int i = 0; i < conexiones.size(); i++)
   {
-    if(predecesores[i]->darOrigen() == infOri && predecesores[i]->darDestino() == infDes)
+    if(conexiones[i]->darInfo() == infDes)
     {
-      a = predecesores[i];
-    }
-  }
-
-  if(a != NULL)
-  {
-    return a;
-  }
-
-  for(int i = 0; i < sucesores.size(); i++)
-  {
-    if(sucesores[i]->darOrigen() == infOri && sucesores[i]->darDestino() == infDes)
-    {
-      a = sucesores[i];
+      a = conexiones[i];
     }
   }
 
@@ -107,40 +80,34 @@ Arista< T >* Vertice< T >::buscarArista( T infOri, T infDes )
 }
 
 template< class T >
-bool Vertice< T >::agregarArista( Arista< T >* ar )
+bool Vertice< T >::agregarArista( Vertice< T >* ar )
 {
-  if(this->buscarArista(ar->darOrigen(), ar->darDestino()) == NULL)
+  if(this->buscarArista(ar->darInfo()) == NULL)
   {
-    if(ar->darOrigen() == this->info)
-    {
-      this->sucesores.push_back(ar);
-      return true;
-    }
-
-    if(ar->darDestino() == this->info)
-    {
-      this->predecesores.push_back(ar);
-      return true;
-    }
+    this->conexiones.push_back(ar);
+    return true;
   }
 
   return false;
 }
 
-//template< class T >
+template< class T >
 //bool Vertice< T >::eliminarArista(); Reformular
 
-/*void Vertice< T >::marcarAdyacentes( )
+void Vertice< T >::marcarAdyacentes( bool esBusqueda )
 {
   this->marcar();
 
-  for(int i = 0; i < this->sucesores.size(); i++)
+  if(esBusqueda == true)
   {
-    T sus = this->sucesores[i];
-    if(g->buscarVertice(sus)->darMarca() == false)
+    std::cout << this->darInfo() << std::endl;
+  }
+
+  for(int i = 0; i < this->conexiones.size(); i++)
+  {
+    if(this->conexiones[i]->darMarca() == false)
     {
-      g->buscarVertice(sus)->marcar();
-      g->buscarVertice(sus)->marcarAdyacentes(g);
+      this->conexiones[i]->marcarAdyacentes(esBusqueda);
     }
   }
-}*/
+}

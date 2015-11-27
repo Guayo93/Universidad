@@ -26,7 +26,11 @@ class Grafo
     bool agregarArista( T infOrigen, T infDestino );
     bool eliminarArista( T infOrigen, T infDestino );
     void desmarcarVertices();
+    void busquedaEnProfundidad();
+    void busquedaEnAnchura();
     int darNumeroComponentesConectados();
+    std::vector< int > caminoEuler();
+    std::vector< int > circuitoEuler();
 };
 
 #include "Grafo.hxx"

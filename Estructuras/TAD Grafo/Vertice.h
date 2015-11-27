@@ -2,15 +2,13 @@
 #define __VERTICE__H__
 
 #include <vector>
-#include "Arista.h"
 
-template< class T >
+template < class T >
 class Vertice
 {
   protected:
     T info;
-    std::vector< Arista< T >* > predecesores;
-    std::vector< Arista< T >* > sucesores;
+    std::vector< Vertice< T >* > conexiones;
     bool marca;
 
   public:
@@ -18,17 +16,15 @@ class Vertice
     ~Vertice();
     T darInfo();
     void setInfo( T nInfo );
-    std::vector< Arista< T >* > darPredecesores();
-    void setPredecesores( std::vector< Arista< T >* > nAris );
-    std::vector< Arista< T >* > darSucesores();
-    void setSucesores( std::vector< Arista< T >* > nAris );
+    std::vector< Vertice< T >* > darConexiones();
+    void setConexiones( std::vector< Vertice< T >* > nAris );
     bool darMarca();
     void marcar();
     void desmarcar();
-    Arista< T >* buscarArista( T infOri, T infDes );
-    bool agregarArista( Arista< T >* ar );
-    bool eliminarArista( Arista< T >* ar );
-    void marcarAdyacentes();
+    Vertice< T >* buscarArista( T infDes );
+    bool agregarArista( Vertice< T >* ar );
+    bool eliminarArista( Vertice< T >* ar );
+    void marcarAdyacentes( bool esBusqueda );
 };
 
 #include "Vertice.hxx"

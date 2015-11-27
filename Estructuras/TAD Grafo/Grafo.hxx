@@ -1,4 +1,5 @@
 #include <vector>
+#include <queue>
 #include "Vertice.h"
 #include "Arista.h"
 
@@ -134,18 +135,18 @@ bool Grafo< T >::agregarArista( T infOrigen, T infDestino )
 
   if(this->aristas[posOr][posDes] < 3 && posOr != -1 && posDes != -1 && ori != NULL && des != NULL)
   {
-    Arista< T >* ar = new Arista< T >();
-    ar->setOrigen(ori->darInfo());
-    ar->setDestino(des->darInfo());
-
     this->aristas[posOr][posDes] += 1;
+    if(posDes != posOr)
+    {
+      this->aristas[posDes][posOr] += 1;
+    }
 
-    if(ori->agregarArista(ar) == false)
+    if(ori->agregarArista(des) == false)
     {
       return false;
     }
 
-    if(des->agregarArista(ar) == false)
+    if(des->agregarArista(ori) == false)
     {
       return false;
     }
@@ -168,24 +169,121 @@ void Grafo< T >::desmarcarVertices()
   }
 }
 
-/*template < class T >
-int Grafo< T >::darNumeroComponentesConectados()
+template < class T >
+void Grafo<T>::busquedaEnProfundidad()
 {
-  int cont = this->vertices.size();
+  this->desmarcarVertices();
 
   for(int i = 0; i < this->vertices.size(); i++)
   {
     if(this->vertices[i]->darMarca() == false)
     {
-      this->vertices[i]->marcarAdyacentes(this);
+      this->vertices[i]->marcarAdyacentes(true);
     }
-    else
+  }
+}
+
+template < class T >
+void Grafo<T>::busquedaEnAnchura()
+{
+  this->desmarcarVertices();
+
+  std::queue< Vertice<T>* > cola;
+
+  for(int i = 0; i < this->vertices.size(); i++)
+  {
+    if(this->vertices[i]->darMarca() == false)
     {
-      cont--;
+      cola.push(this->vertices[i]);
+    }
+
+    while(cola.empty() == false)
+    {
+      Vertice<T>* temp = cola.front();
+
+      cola.pop();
+
+      if(temp->darMarca() == false)
+      {
+        std::cout << temp->darInfo() << std::endl;
+        temp->marcar();
+        for(int j = 0; j < temp->darConexiones().size(); j++)
+        {
+          cola.push(temp->darConexiones()[j]);
+        }
+      }
+    }
+  }
+}
+
+template < class T >
+int Grafo< T >::darNumeroComponentesConectados()
+{
+  this->desmarcarVertices();
+
+  std::vector< Vertice< T >* > marcados;
+
+  int cont = 0;
+
+  for(int i = 0; i < this->vertices.size(); i++)
+  {
+    bool esta = false;
+    for(int j = 0; j < marcados.size(); j++)
+    {
+      if(this->vertices[i]->darInfo() == marcados[j]->darInfo())
+      {
+        esta = true;
+      }
+    }
+
+    if(esta == false)
+    {
+      this->vertices[i]->marcarAdyacentes(false);
+      for(int j = 0; j < this->vertices.size(); j++)
+      {
+        if(this->vertices[j]->darMarca() == true)
+        {
+          marcados.push_back(this->vertices[j]);
+        }
+      }
+      cont++;
     }
   }
 
-  this->desmarcarVertices();
-
   return cont;
-}*/
+}
+
+template <class T>
+std::vector< int > Grafo<T>::caminoEuler()
+{
+  std::vector< int > pos;
+  std::vector< int > resp;
+
+  for(int i = 0; i < this->vertices.size(); i++)
+  {
+    if(this->vertices[i]->darConexiones().size() % 2 != 0)
+    {
+      pos.push_back(i);
+    }
+  }
+
+  if(pos.size() == 0)
+  {
+    bool termino = false;
+
+    while(termino == false)
+    {
+
+    }
+
+    return resp;
+  }
+  else if(pos.size() == 2)
+  {
+    return resp;
+  }
+  else
+  {
+    return pos;
+  }
+}
