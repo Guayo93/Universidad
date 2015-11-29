@@ -123,11 +123,11 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="idC1" id="9E937D65-F587-6EF1-CD84-1B068D0AC051">
-<createdBy>CaGua</createdBy>
-<createdTime>2015-10-17 04:47:09 UTC</createdTime>
-<generatorID>1AA4C95B-983C-EC4C-7AAC-38672E4972C1</generatorID>
-<ownerDesignName>Modelo</ownerDesignName>
+<Attribute name="idC" id="65A1CD5A-BFEA-F113-3FE3-47E6419A6533">
+<createdBy>aleja_000</createdBy>
+<createdTime>2015-10-17 02:41:45 UTC</createdTime>
+<generatorID>B30D3945-3D8C-28B3-931B-909712C29C35</generatorID>
+<ownerDesignName>try4</ownerDesignName>
 <engineerTo>
 <item key="47467078-0511-43DA-A82B-14940D38FCA8" value="true"/>
 </engineerTo>

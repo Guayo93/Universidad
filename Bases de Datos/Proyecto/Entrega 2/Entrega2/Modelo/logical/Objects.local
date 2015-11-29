@@ -1,17 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <oracle.dbtools.crest.model.design.logical.LogicalDesign>
-   <object objectType="Entity" objectID="782117C0-8D97-3D93-674E-91E0242B5745" name="Usuario" seqName="seg_0"/>
-   <object objectType="Entity" objectID="7D7CA071-D1B1-B3A7-FE00-90CA33DBBAA3" name="Comprador" seqName="seg_0"/>
-   <object objectType="Entity" objectID="7FE17531-6E80-F5D1-DE7E-CCD071770B0A" name="Propiedad" seqName="seg_0"/>
-   <object objectType="Entity" objectID="9D9E1B5B-5ED5-9581-08A0-800EAA617ABD" name="Imagen" seqName="seg_0"/>
    <object objectType="Entity" objectID="A042D058-C914-BD6F-9663-23C78BA03792" name="Ciudad" seqName="seg_0"/>
+   <object objectType="Entity" objectID="7D7CA071-D1B1-B3A7-FE00-90CA33DBBAA3" name="Comprador" seqName="seg_0"/>
+   <object objectType="Entity" objectID="9D9E1B5B-5ED5-9581-08A0-800EAA617ABD" name="Imagen" seqName="seg_0"/>
+   <object objectType="Entity" objectID="7FE17531-6E80-F5D1-DE7E-CCD071770B0A" name="Propiedad" seqName="seg_0"/>
    <object objectType="Entity" objectID="B0901B92-02EF-C61F-6397-2AEBA657D255" name="Propietario" seqName="seg_0"/>
-   <object objectType="Relation" objectID="1AA4C95B-983C-EC4C-7AAC-38672E4972C1" name="Renta" seqName="seg_0"/>
-   <object objectType="Relation" objectID="1B1A637D-D99B-C47A-1656-712D80F3E163" name="Locacion" seqName="seg_0"/>
+   <object objectType="Entity" objectID="782117C0-8D97-3D93-674E-91E0242B5745" name="Usuario" seqName="seg_0"/>
    <object objectType="Relation" objectID="5CED85F4-900A-8800-5DBF-666430E9DE55" name="Lista de Visita" seqName="seg_0"/>
-   <object objectType="Relation" objectID="87E3FF14-998A-6F0F-1940-0BD68CF80880" name="fotos" seqName="seg_0"/>
+   <object objectType="Relation" objectID="1B1A637D-D99B-C47A-1656-712D80F3E163" name="Locacion" seqName="seg_0"/>
    <object objectType="Relation" objectID="A44BA49A-A41F-480E-2C23-594AEA5E3FAA" name="Propietario de" seqName="seg_0"/>
-   <object objectType="Relation" objectID="B30D3945-3D8C-28B3-931B-909712C29C35" name="" seqName="seg_0"/>
+   <object objectType="Relation" objectID="B30D3945-3D8C-28B3-931B-909712C29C35" name="Rentav1" seqName="seg_0"/>
+   <object objectType="Relation" objectID="87E3FF14-998A-6F0F-1940-0BD68CF80880" name="fotos" seqName="seg_0"/>
    <object objectType="Hierarchy relation" objectID="4F275D11-90A2-4DE2-7DDD-8E2967A2C298" name="Hierarchy_1" seqName="seg_0"/>
    <object objectType="Hierarchy relation" objectID="60DF3918-72C8-A331-00D8-A0599C5CB904" name="Hierarchy_2" seqName="seg_0"/>
 </oracle.dbtools.crest.model.design.logical.LogicalDesign>
