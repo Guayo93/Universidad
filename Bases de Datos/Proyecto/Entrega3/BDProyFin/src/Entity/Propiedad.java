@@ -35,7 +35,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Propiedad.findByTipo", query = "SELECT p FROM Propiedad p WHERE p.tipo = :tipo"),
     @NamedQuery(name = "Propiedad.findByNumHabitaciones", query = "SELECT p FROM Propiedad p WHERE p.numHabitaciones = :numHabitaciones"),
     @NamedQuery(name = "Propiedad.findByDireccion", query = "SELECT p FROM Propiedad p WHERE p.direccion = :direccion"),
-    @NamedQuery(name = "Propiedad.findByEstado", query = "SELECT p FROM Propiedad p WHERE p.estado = :estado")})
+    @NamedQuery(name = "Propiedad.findByEstado", query = "SELECT p FROM Propiedad p WHERE p.estado = :estado"),
+    @NamedQuery(name = "Propiedad.findByValor", query = "SELECT p FROM Propiedad p WHERE p.valor = :valor")})
 public class Propiedad implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -51,6 +52,8 @@ public class Propiedad implements Serializable {
     private String direccion;
     @Column(name = "ESTADO")
     private Short estado;
+    @Column(name = "VALOR")
+    private Long valor;
     @JoinColumn(name = "COD_CIUDAD", referencedColumnName = "COD_CIUDAD")
     @ManyToOne
     private Ciudad codCiudad;
@@ -112,6 +115,14 @@ public class Propiedad implements Serializable {
 
     public void setEstado(Short estado) {
         this.estado = estado;
+    }
+
+    public Long getValor() {
+        return valor;
+    }
+
+    public void setValor(Long valor) {
+        this.valor = valor;
     }
 
     public Ciudad getCodCiudad() {
@@ -186,7 +197,7 @@ public class Propiedad implements Serializable {
 
     @Override
     public String toString() {
-        return "bdproyfin.Propiedad[ idPropiedad=" + idPropiedad + " ]";
+        return "Entity.Propiedad[ idPropiedad=" + idPropiedad + " ]";
     }
     
 }

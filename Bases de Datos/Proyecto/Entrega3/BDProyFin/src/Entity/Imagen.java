@@ -121,7 +121,7 @@ public class Imagen implements Serializable {
 
     @Override
     public String toString() {
-        return "bdproyfin.Imagen[ idPropiedad=" + idPropiedad + " ]";
+        return "Entity.Imagen[ idPropiedad=" + idPropiedad + " ]";
     }
     
 }

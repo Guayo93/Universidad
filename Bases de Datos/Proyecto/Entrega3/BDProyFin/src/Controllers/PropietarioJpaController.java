@@ -222,5 +222,17 @@ public class PropietarioJpaController implements Serializable {
             em.close();
         }
     }
+
+    public int cedPropietarioCount(long cedula) {
+        EntityManager em = getEntityManager();
+        try {
+            Query q ;
+            q = em.createQuery("SELECT COUNT(x) FROM Propietario x WHERE x.cedula = ?1");
+            q.setParameter(1, cedula);
+            return ((int)q.getSingleResult());
+        } finally {
+            em.close();
+        }
+    }
     
 }

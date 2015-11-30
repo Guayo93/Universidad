@@ -119,7 +119,7 @@ public class Propietario implements Serializable {
 
     @Override
     public String toString() {
-        return "bdproyfin.Propietario[ idp=" + idp + " ]";
+        return "Entity.Propietario[ idp=" + idp + " ]";
     }
     
 }

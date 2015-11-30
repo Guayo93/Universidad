@@ -335,5 +335,17 @@ public class CompradorJpaController implements Serializable {
             em.close();
         }
     }
+
+    public int cedCompradorCount(long cedula) {
+        EntityManager em = getEntityManager();
+        try {
+            Query q ;
+            q = em.createQuery("SELECT COUNT(x) FROM Comprador x WHERE x.cedula = ?1");
+            q.setParameter(1, cedula);
+            return ((int)q.getSingleResult());
+        } finally {
+            em.close();
+        }
+    }
     
 }

@@ -95,7 +95,7 @@ public class Ciudad implements Serializable {
 
     @Override
     public String toString() {
-        return "bdproyfin.Ciudad[ codCiudad=" + codCiudad + " ]";
+        return "Entity.Ciudad[ codCiudad=" + codCiudad + " ]";
     }
     
 }

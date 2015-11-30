@@ -128,7 +128,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "bdproyfin.Usuario[ cedula=" + cedula + " ]";
+        return "Entity.Usuario[ cedula=" + cedula + " ]";
     }
     
 }

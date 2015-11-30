@@ -32,7 +32,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Comprador.findAll", query = "SELECT c FROM Comprador c"),
     @NamedQuery(name = "Comprador.findByIdc", query = "SELECT c FROM Comprador c WHERE c.idc = :idc"),
     @NamedQuery(name = "Comprador.findByUsuario", query = "SELECT c FROM Comprador c WHERE c.usuario = :usuario"),
-    @NamedQuery(name = "Comprador.findByContrasena", query = "SELECT c FROM Comprador c WHERE c.contrasena = :contrasena")})
+    @NamedQuery(name = "Comprador.findByContrasena", query = "SELECT c FROM Comprador c WHERE c.contrasena = :contrasena"),
+    @NamedQuery(name = "Comprador.findByRentamax", query = "SELECT c FROM Comprador c WHERE c.rentamax = :rentamax")})
 public class Comprador implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,6 +45,8 @@ public class Comprador implements Serializable {
     private String usuario;
     @Column(name = "CONTRASENA")
     private String contrasena;
+    @Column(name = "RENTAMAX")
+    private Long rentamax;
     @OneToMany(mappedBy = "idc")
     private Collection<Propiedad> propiedadCollection;
     @JoinColumn(name = "CEDULA", referencedColumnName = "CEDULA")
@@ -83,6 +86,14 @@ public class Comprador implements Serializable {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
+    }
+
+    public Long getRentamax() {
+        return rentamax;
+    }
+
+    public void setRentamax(Long rentamax) {
+        this.rentamax = rentamax;
     }
 
     @XmlTransient
@@ -142,7 +153,7 @@ public class Comprador implements Serializable {
 
     @Override
     public String toString() {
-        return "bdproyfin.Comprador[ idc=" + idc + " ]";
+        return "Entity.Comprador[ idc=" + idc + " ]";
     }
     
 }

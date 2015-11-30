@@ -117,7 +117,7 @@ public class Asesor implements Serializable {
 
     @Override
     public String toString() {
-        return "bdproyfin.Asesor[ cedula=" + cedula + " ]";
+        return "Entity.Asesor[ cedula=" + cedula + " ]";
     }
     
 }

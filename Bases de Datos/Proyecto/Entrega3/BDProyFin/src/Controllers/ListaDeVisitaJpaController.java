@@ -39,8 +39,8 @@ public class ListaDeVisitaJpaController implements Serializable {
         if (listaDeVisita.getListaDeVisitaPK() == null) {
             listaDeVisita.setListaDeVisitaPK(new ListaDeVisitaPK());
         }
-        listaDeVisita.getListaDeVisitaPK().setIdPropiedad(listaDeVisita.getPropiedad().getIdPropiedad());
         listaDeVisita.getListaDeVisitaPK().setIdc(listaDeVisita.getComprador().getIdc());
+        listaDeVisita.getListaDeVisitaPK().setIdPropiedad(listaDeVisita.getPropiedad().getIdPropiedad());
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -78,8 +78,8 @@ public class ListaDeVisitaJpaController implements Serializable {
     }
 
     public void edit(ListaDeVisita listaDeVisita) throws NonexistentEntityException, Exception {
-        listaDeVisita.getListaDeVisitaPK().setIdPropiedad(listaDeVisita.getPropiedad().getIdPropiedad());
         listaDeVisita.getListaDeVisitaPK().setIdc(listaDeVisita.getComprador().getIdc());
+        listaDeVisita.getListaDeVisitaPK().setIdPropiedad(listaDeVisita.getPropiedad().getIdPropiedad());
         EntityManager em = null;
         try {
             em = getEntityManager();

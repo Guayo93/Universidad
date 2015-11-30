@@ -32,6 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Renta.findByIdRenta", query = "SELECT r FROM Renta r WHERE r.idRenta = :idRenta"),
     @NamedQuery(name = "Renta.findByFechaInicio", query = "SELECT r FROM Renta r WHERE r.fechaInicio = :fechaInicio"),
     @NamedQuery(name = "Renta.findByFechaFin", query = "SELECT r FROM Renta r WHERE r.fechaFin = :fechaFin"),
+    @NamedQuery(name = "Renta.findByCorreo", query = "SELECT r FROM Renta r WHERE r.correo = :correo"),
     @NamedQuery(name = "Renta.findByValor", query = "SELECT r FROM Renta r WHERE r.valor = :valor")})
 public class Renta implements Serializable {
 
@@ -46,6 +47,8 @@ public class Renta implements Serializable {
     @Column(name = "FECHA_FIN")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaFin;
+    @Column(name = "CORREO")
+    private String correo;
     @Column(name = "VALOR")
     private Long valor;
     @JoinColumn(name = "CED_ASE", referencedColumnName = "CEDULA")
@@ -87,6 +90,14 @@ public class Renta implements Serializable {
 
     public void setFechaFin(Date fechaFin) {
         this.fechaFin = fechaFin;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public Long getValor() {
@@ -143,7 +154,7 @@ public class Renta implements Serializable {
 
     @Override
     public String toString() {
-        return "bdproyfin.Renta[ idRenta=" + idRenta + " ]";
+        return "Entity.Renta[ idRenta=" + idRenta + " ]";
     }
     
 }

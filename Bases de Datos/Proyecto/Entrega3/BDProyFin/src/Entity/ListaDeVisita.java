@@ -111,7 +111,7 @@ public class ListaDeVisita implements Serializable {
 
     @Override
     public String toString() {
-        return "bdproyfin.ListaDeVisita[ listaDeVisitaPK=" + listaDeVisitaPK + " ]";
+        return "Entity.ListaDeVisita[ listaDeVisitaPK=" + listaDeVisitaPK + " ]";
     }
     
 }
