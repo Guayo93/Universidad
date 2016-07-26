@@ -1,0 +1,37 @@
+#uno{
+  color: red;
+  border: 1px solid black;
+}
+
+#dos{
+  color: green;
+  border: 1px dotted black;
+}
+
+#tres{
+  color: green;
+  border: 1px black dashed;
+  padding: 100px;
+}
+
+span{
+  border: 1px solid red;
+}
+
+div{
+  margin: 15px;
+  padding: 20px;
+}
+
+#gato1{
+  float: right;
+}
+
+#gato2{
+  float: left;
+}
+
+img{
+  width: 300px;
+  height: 300px;
+}
