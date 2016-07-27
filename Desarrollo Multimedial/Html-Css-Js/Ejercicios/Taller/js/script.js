@@ -6,15 +6,18 @@ function mouseController(event, height, width)
   ctx.save();
 
   ctx.fillStyle = "rgba(255, 255, 255, 1)";
-  ctx.fillRect(0, 0, 600, 600);
+  ctx.fillRect(0, 0, 1200, 600);
 
   var x = event.clientX;
   var y = event.clientY;
 
-  ctx.fillStyle = "rgb(0, 255, 0)";
+  ctx.fillStyle = "rgb(0, 0, 255)";
   ctx.fillRect(0, 0, 50, 50);
 
-  ctx.fillStyle = "rgba(0, 0, 0, 1)";
+  ctx.fillStyle = "rgb(0, 255, 0)";
+  ctx.fillRect(1150, 550, 50, 50);
+
+  ctx.fillStyle = "rgb(0, 0, 0)";
   ctx.fillRect(x-15, y-15, width, height);
 
   ctx.restore();
@@ -27,5 +30,5 @@ function mouseController(event, height, width)
 
 function resetGame()
 {
-  document.getElementById('message').innerHTML = "Vuelve a la zona azul!";
+  document.getElementById('message').innerHTML = "Vuelve a la zona Azul!";
 }
