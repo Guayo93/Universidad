@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Taller HTML/CSS/JS</title>
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
-    <script src="js/script.js"></script>
-  </head>
-  <body>
-    <canvas id="canvas" width="1200" height="600" onmousemove="mouseController(event, 15, 15)" onmouseout="resetGame()">
-    </canvas>
-    <h1 id="message"></p>
-  </body>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Taller 1 - DM</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="canvas" width="900" height="400"></canvas>
+  <p>Instrucciones:</p>
+  <ol>
+    <li>Poner el cursor en el cuadro azul para inicar partida.</li>
+    <li>Al tocar los obstaculos se pierde la partida.</li>
+    <li>Al llegar al cuadro verde se gana la partida.</li>
+    <li>Menos puntaje es mejor!</li>
+  </ol>
+  <p id="score"></p>
+  <p id="intentos"></p>
+  <p id="puntajeMenor"></p>
+  <p id="message"></p>
+  <script src="js/script.js"></script>
+</body>
 </html>

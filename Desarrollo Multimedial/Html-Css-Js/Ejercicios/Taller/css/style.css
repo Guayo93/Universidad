@@ -3,10 +3,14 @@
   padding: 0;
 }
 
+p{
+  font-family: Roboto Slab;
+}
+
 #canvas{
-  border: 1px solid black;
+  border: solid 1px black;
 }
 
 #message{
-  color: rgb(255, 0, 0);
+  color: red;
 }
