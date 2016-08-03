@@ -40,43 +40,58 @@ public class LectorPixeles {
 		
 		//System.out.println("ancho, alto: " + ancho + ", " + alto);
 		
-		for (int i = 0; i < alto; i++) 
+		if(ancho == ancho2 && alto == alto2)
 		{
-			for (int j = 0; j < ancho; j++) 
+			for (int i = 0; i < alto; i++) 
 			{
-				int resta = 0;
-				if(alto == alto2 && ancho == ancho2)
+				for (int j = 0; j < ancho; j++) 
 				{
+					int resta = 0;
 					//System.out.println("x,y: " + j + ", " + i);
+					
+					//Receppcion de pixeles
 					int pixel = mImagen.getRGB(j, i);
 					int pixel2 = mImagen2.getRGB(j, i);
-					imprimirARGB(pixel);
+					
+					//Impresion de pixeles
+					imprimirARGB(pixel, mModo);
+					imprimirARGB(pixel2, mModo2);
+					
+					//Resta de pixeles
 					resta = pixel - pixel2;
 					
+					//Sumatoria
 					sumatoria += Math.pow(resta, 2);
 				}
 			}
-		}
-		
-		ecm = sumatoria / (ancho * alto);
-		System.out.println("ECM: " + ecm);
-		
-		if(ecm == 0)
-		{
-			System.out.println("PSNR: No hay, pues el error es 0.");
+			
+			//Formula de ECM = Error Cuadratico Medio
+			ecm = sumatoria / (ancho * alto);
+			System.out.println("ECM: " + ecm);
+			
+			//Si el error es 0, se evita realizar la operacion de Señal o Ruido de Pico
+			if(ecm == 0)
+			{
+				System.out.println("PSNR: No hay, pues el error es 0.");
+			}
+			else
+			{
+				long canales = (long) Math.pow(2, 24);
+				psnr = Math.log10(Math.pow(canales, 2) / ecm);
+				psnr *= 10;
+				System.out.println("PSNR: " + psnr);
+			}
 		}
 		else
 		{
-			long canales = (long) Math.pow(2, 24);
-			psnr = Math.log10(Math.pow(canales, 2) / ecm);
-			psnr *= 10;
-			System.out.println("PSNR: " + psnr);
+			System.out.println("Error: Las imagenes son de diferentes tamaños.");
 		}
 		
 		mImagen.flush();
+		mImagen2.flush();
 	}
 
-	private void imprimirARGB(int pixel)
+	private void imprimirARGB(int pixel, int modo)
 	{
 		int alpha = 0;
 		int rojo = (pixel >> 16) & 0xff;
@@ -84,7 +99,7 @@ public class LectorPixeles {
 		int azul = (pixel) & 0xff;
 		StringBuilder sbuilder = new StringBuilder();
 
-		if (mModo == ARGB) {
+		if (modo == ARGB) {
 			alpha = (pixel >> 24) & 0xff;
 
 			sbuilder.append("alpha: ");
