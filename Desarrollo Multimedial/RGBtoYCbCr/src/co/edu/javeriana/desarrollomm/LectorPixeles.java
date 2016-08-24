@@ -26,7 +26,7 @@ public class LectorPixeles
 	private long matrizCuantizada[][];
 	private double matrizHuffman[][];
 	private double matrizDescuantizada[][];
-	private double matrizIDCT[][];
+	private long matrizIDCT[][];
 	private RGBPixel matrizFinal[][];
 
 	public LectorPixeles(String file)
@@ -40,7 +40,7 @@ public class LectorPixeles
 			matrizCuantizada = new long[8][8];
 			matrizHuffman = new double[8][8];
 			matrizDescuantizada = new double[8][8];
-			matrizIDCT = new double[8][8];
+			matrizIDCT = new long[8][8];
 			matrizFinal = new RGBPixel[8][8];
 		} 
 		catch (IOException e) 
@@ -202,7 +202,7 @@ public class LectorPixeles
 						ycbcr = ycbcr | ((int) matrizYCbCr[k][l].getBlueContrast() << 8);
 						ycbcr = ycbcr | (int) matrizYCbCr[k][l].getRedContrast();
 
-						sumatoria += ycbcr * Math.cos((Math.PI * ((2 * k) + 1) * i) / 16) * Math.cos((Math.PI * ((2 * l) + 1) * j) / 16);
+						sumatoria += matrizYCbCr[k][l].getLuma() * Math.cos((Math.PI * ((2 * k) + 1) * i) / 16) * Math.cos((Math.PI * ((2 * l) + 1) * j) / 16);
 					}
 				}
 				
