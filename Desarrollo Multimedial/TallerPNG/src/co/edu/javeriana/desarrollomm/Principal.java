@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Principal 
 {
-	public List<Componente> compresion(String cadena)
+	public static List<Componente> compresion(String cadena)
 	{
 		List<Componente> cifrado = new ArrayList<Componente>();
 		int ventana = 0;
@@ -30,7 +30,7 @@ public class Principal
 					
 					for(int j = posInterior; j < subS.length() && flag == true; j++)
 					{
-						if(subS.charAt(j) == cadena.charAt(i + cont))
+						if(subS.charAt(j) == cadena.charAt(i + cont) && (i + cont + 1) < cadena.length())
 						{
 							cont++;
 						}
@@ -40,7 +40,7 @@ public class Principal
 						}
 					}
 					
-					Componente comp = new Componente(posInterior, posInterior + cont, "" + cadena.charAt(i + cont));
+					Componente comp = new Componente(posInterior + cont, cont, "" + cadena.charAt(i + cont));
 					cifrado.add(comp);
 					i += cont;
 				}
@@ -60,8 +60,18 @@ public class Principal
 		return cifrado;
 	}
 	
-	public static void main(String[] args) 
+	public static String descompresion(List<Componente> mensaje)
 	{
-		// TODO Auto-generated method stub
+		String cadena = "";
+		
+		for(int i = 0; i < mensaje.size(); i++)
+		{
+			String subs = cadena.substring(cadena.length() - mensaje.get(i).getPosMatch(), cadena.length() - (mensaje.get(i).getPosMatch() - mensaje.get(i).getCorrimiento()));
+			subs += mensaje.get(i).getComboBreaker();
+			
+			cadena += subs;
+		}
+		
+		return cadena;
 	}
 }
