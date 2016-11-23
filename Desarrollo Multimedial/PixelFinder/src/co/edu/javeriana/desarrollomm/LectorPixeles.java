@@ -27,100 +27,38 @@ public class LectorPixeles {
 		}
 	}
 	
-	public void iniciarProceso()
+	public void iniciarProceso(int x, int y)
 	{
 		int ancho = mImagen.getWidth();
 		int ancho2 = mImagen2.getWidth();
 		int alto = mImagen.getHeight();
 		int alto2 = mImagen2.getHeight();
-		long sumatoria = 0;
-		
-		double ecm = 0;
-		double psnr = 0;
-		
-		//System.out.println("ancho, alto: " + ancho + ", " + alto);
-		
-		if(ancho == ancho2 && alto == alto2)
+
+		for(int i = 0; i < alto; i++)
 		{
-			for (int i = 0; i < alto; i++) 
+			for(int j = 0; j < ancho; j++)
 			{
-				for (int j = 0; j < ancho; j++) 
+				if(i >= y && i < (y + alto2) && j >= x && j < (x + ancho2))
 				{
-					int resta = 0;
-					//System.out.println("x,y: " + j + ", " + i);
+					int pixel = mImagen2.getRGB((j - x), (i - y));
+					int alpha = (pixel >> 24) & 0xff;
 					
-					//Receppcion de pixeles
-					int pixel = mImagen.getRGB(j, i);
-					int pixel2 = mImagen2.getRGB(j, i);
-					
-					//Impresion de pixeles
-					imprimirARGB(pixel, mModo);
-					imprimirARGB(pixel2, mModo2);
-					
-					//Resta de pixeles
-					resta = pixel - pixel2;
-					
-					//Sumatoria
-					sumatoria += Math.pow(resta, 2);
+					if(alpha != 0)
+					{
+						mImagen.setRGB(j, i, pixel);
+					}
 				}
 			}
-			
-			//Formula de ECM = Error Cuadratico Medio
-			ecm = sumatoria / (ancho * alto);
-			System.out.println("ECM: " + ecm);
-			
-			//Si el error es 0, se evita realizar la operacion de Señal o Ruido de Pico
-			if(ecm == 0)
-			{
-				System.out.println("PSNR: No hay, pues el error es 0.");
-			}
-			else
-			{
-				long canales = (long) Math.pow(2, 24);
-				psnr = Math.log10(Math.pow(canales, 2) / ecm);
-				psnr *= 10;
-				System.out.println("PSNR: " + psnr);
-			}
 		}
-		else
-		{
-			System.out.println("Error: Las imagenes son de diferentes tamaños.");
+		
+		try {
+			ImageIO.write(mImagen, "png", new File("./gatos2.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		mImagen.flush();
 		mImagen2.flush();
 	}
-
-	private void imprimirARGB(int pixel, int modo)
-	{
-		int alpha = 0;
-		int rojo = (pixel >> 16) & 0xff;
-		int verde = (pixel >> 8) & 0xff;
-		int azul = (pixel) & 0xff;
-		StringBuilder sbuilder = new StringBuilder();
-
-		if (modo == ARGB) {
-			alpha = (pixel >> 24) & 0xff;
-
-			sbuilder.append("alpha: ");
-			sbuilder.append(alpha);
-			sbuilder.append(", ");
-		}
-
-		sbuilder.append("rojo: ");
-		sbuilder.append(rojo);
-		sbuilder.append(", ");
-
-		sbuilder.append("verde: ");
-		sbuilder.append(verde);
-		sbuilder.append(", ");
-
-		sbuilder.append("azul: ");
-		sbuilder.append(azul);
-		sbuilder.append(".");
-
-		//System.out.println(sbuilder.toString());
-
-	}
-
 }

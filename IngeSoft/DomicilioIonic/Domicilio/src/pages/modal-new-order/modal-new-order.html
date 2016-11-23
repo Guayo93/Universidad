@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>Nueva Orden</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Objetos de la Orden</ion-label>
+      <ion-input type="text" [(ngModel)]="order"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Direccion de Envio</ion-label>
+      <ion-input type="text" [(ngModel)]="address"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Algun Comentario?</ion-label>
+      <ion-input type="text" [(ngModel)]="comments"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button block (click)="sendOrder()">Enviar Orden</button>
+</ion-content>

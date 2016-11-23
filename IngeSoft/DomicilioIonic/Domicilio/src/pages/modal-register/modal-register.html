@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <img src="assets/registro.png" />
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Nombre</ion-label>
+      <ion-input type="value" [(ngModel)]="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Apellido</ion-label>
+      <ion-input type="value" [(ngModel)]="lastName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Numero Telefonico</ion-label>
+      <ion-input type="value" [(ngModel)]="phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Correo Electronico</ion-label>
+      <ion-input type="value" [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="pass"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Confirmación de Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="passConfirm"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button block (click)="register()">Finalizar Registro</button>
+</ion-content>

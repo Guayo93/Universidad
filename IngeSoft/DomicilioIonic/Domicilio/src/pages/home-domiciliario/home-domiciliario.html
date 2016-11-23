@@ -1,0 +1,66 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button ion-item (click)="pushConfig()">Opciones Cuenta</button>
+      <button ion-item (click)="signout()">Cerrar Sesion</button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #content [root]="rootPage"></ion-nav>
+
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      {{name}} {{lastName}}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-right item-left (click)="switchMode()">
+        Domiciliario
+        <ion-icon name="swap"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let order of orders">
+      <ion-card>
+        <ion-card-header>{{order.order}}</ion-card-header>
+        <ion-card-content>
+          {{order.comments}}
+          Direccion: {{order.address}}
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-list>
+      <ion-item>
+        <ion-label>Ordenes Por:</ion-label>
+        <ion-select [(ngModel)]="status">
+          <ion-option value="hold">En Espera</ion-option>
+          <ion-option value="accepted">Aceptados</ion-option>
+          <ion-option value="finished">Finalizados</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <button ion-button block (click)="getOrders()">Actualizar</button>
+      </ion-item>
+    </ion-list>
+  </ion-toolbar>
+</ion-footer>

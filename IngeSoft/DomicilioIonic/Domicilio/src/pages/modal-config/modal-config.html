@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Configuracion de Cuenta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating [(ngModel)]="tel">Nuevo Telefono</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating[(ngModel)]="pass">Nueva Contraseña</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating [(ngModel)]="passConfirm">Confirmacion Contraseña</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button block (click)="update()">Enviar</button>
+
+  <ion-list>
+    <h3>Si usted lo desea tambien puede eliminar su cuenta.</h3>
+    <button ion-button block color="danger" (click)="deleteAccount()">Eliminar Cuenta</button>
+  </ion-list>
+</ion-content>

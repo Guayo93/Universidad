@@ -1,0 +1,15 @@
+<ion-content padding>
+  <img src="assets/inicio.png" />
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Correo Electronico</ion-label>
+      <ion-input [(ngModel)]="email" type="value"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Contraseña</ion-label>
+      <ion-input [(ngModel)]="pass" type="password"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button block (click)="validateUser()">Ingresar</button>
+  <button ion-button block (click)="pushRegister()">No tienes cuenta? Registrate</button>
+</ion-content>
