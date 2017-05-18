@@ -1,0 +1,32 @@
+; Punto 1 - Precio Unitario
+(define subtotal (lambda (lista)
+                          (
+                            car (
+                                  cdr lista))))
+
+(precio-unitario (list "Guayabas" 2000 3))
+
+; Punto 2 - SubTotal
+(define mult (lambda (lista) (
+                               apply * lista)))
+(define subtotal (lambda (lista) (
+                                   map mult (
+                                             map cdr lista))))
+(subtotal (list
+ (list "Papas" 1000 2)
+ (list "Guayabas" 2000 3)
+ (list "Arepas" 1450 4)))
+
+ ; Punto 3 - Total
+ (define mult (lambda (lista) (
+                               apply * lista)))
+(define subtotal (lambda (lista) (
+                                   map mult (
+                                             map cdr lista))))
+(define total (lambda (lista) (
+                                apply + (
+                                          subtotal lista))))
+(total (list
+ (list "Papas" 1000 2)
+ (list "Guayabas" 2000 3)
+ (list "Arepas" 1450 4)))
