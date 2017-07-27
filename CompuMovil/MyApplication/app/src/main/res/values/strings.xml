@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="hw">Hellow World!</string>
+    <string name="universidad">Javeriana</string>
+    <string name="abecedario">abcdefghijklmnopqrstuvwxyz</string>
+    <string name="numeros">12345678910</string>
+</resources>
