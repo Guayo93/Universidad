@@ -11,6 +11,7 @@ public class TextoActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_texto);
+
         tv = (TextView) findViewById(R.id.txtView);
         String txt = getIntent().getStringExtra("txtActivity");
         tv.setText(txt);
