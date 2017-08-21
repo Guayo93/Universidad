@@ -1,0 +1,194 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\lang spanish-mexico
+Taller 1 - Análisis de Algoritmos
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish-mexico
+El análisis a continuación pretende evaluar el rendimiento, preferiblemente
+ basado en tiempo de ejecución, de tres (3) algoritmos diferentes, los cuales
+ pueden ser utilizados, pero no limitado, para encontrar la ruta mas corta
+ entre dos (2) nodos dentro de un grafo.
+ Adicionalmente, se tiene la precondición que para evaluar el camino mas
+ corto en dos (2) nodos del grafo debe tener mínimo un camino entre ellos,
+ de lo contrario los algoritmos podrían no funcionar de la forma deseada.
+\end_layout
+
+\begin_layout Section
+
+\lang spanish-mexico
+Diseño del Experimento
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish-mexico
+Los algoritmos a evaluar serán los siguientes:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang spanish-mexico
+Kruskal.
+\end_layout
+
+\begin_layout Enumerate
+
+\lang spanish-mexico
+Dijkstra.
+\end_layout
+
+\begin_layout Enumerate
+
+\lang spanish-mexico
+Floyd-Warshal.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish-mexico
+Para dicho análisis se creara un grafo cuyos vértices y aristas serán asignados
+ a partir de un archivo de texto, el cual tendrá una estructura igual a
+ la especificada en el documento del enunciado.
+ Cuando el grafo a utilizar haya terminado de llenarse, se procederá ejecutar
+ de manera secuencial cada uno de los algoritmos, cabe resaltar que antes
+ de cada algoritmo se inicia un contador de tiempo para registrar el tiempo
+ de ejecución y el mismo es detenido cuando ha terminado el algoritmo.
+\end_layout
+
+\begin_layout Section
+
+\lang spanish-mexico
+Resultados
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish-mexico
+Los resultado son presentados de la siguiente manera:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang spanish-mexico
+Nodo inicial desde el cual inicia el camino.
+\end_layout
+
+\begin_layout Enumerate
+
+\lang spanish-mexico
+Nodo final en el cual termina el camino.
+\end_layout
+
+\begin_layout Enumerate
+
+\lang spanish-mexico
+Peso del camino mas corto generado por el algoritmo de Dijkstra.
+\end_layout
+
+\begin_layout Enumerate
+
+\lang spanish-mexico
+Tiempo de duración que tomo el algoritmo de Dijkstra en completarse.
+\end_layout
+
+\begin_layout Enumerate
+
+\lang spanish-mexico
+Peso del camino mas corto generado por el algoritmo de Kruskal.
+\end_layout
+
+\begin_layout Enumerate
+
+\lang spanish-mexico
+Tiempo de duración que tomo el algoritmo de Kruskal en completarse.
+\end_layout
+
+\begin_layout Enumerate
+
+\lang spanish-mexico
+Peso del camino mas corto generado por el algoritmo de Floyd-Warshal.
+\end_layout
+
+\begin_layout Enumerate
+
+\lang spanish-mexico
+Tiempo de duración que tomo el algoritmo de Floyd-Warshal en completarse.
+\end_layout
+
+\end_body
+\end_document
