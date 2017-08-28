@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Taller1</string>
+    <string name="initial">0</string>
+    <string name="fibonacci">Fibonacci</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="hint">Numero de Iteraciones</string>
+    <string name="factorial">Factorial</string>
+</resources>

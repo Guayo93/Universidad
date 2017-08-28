@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ClaseLayouts</string>
+    <string name="usHint">Usuario</string>
+    <string name="frame">Frame</string>
+    <string name="web">Web</string>
+    <string name="list">List</string>
+
+    <string-array name="nivelEducativo">
+        <item>Primaria</item>
+        <item>Bachiller</item>
+        <item>Técnico</item>
+        <item>Profesional</item>
+        <item>Maestria</item>
+        <item>Doctorado</item>
+        <item>Postdoctorado</item>
+    </string-array>
+</resources>

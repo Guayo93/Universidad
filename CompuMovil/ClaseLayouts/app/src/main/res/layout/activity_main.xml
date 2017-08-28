@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="25dp">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgCenter"
+        android:src="@drawable/google_contacts"
+        android:layout_centerHorizontal="true"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtInput"
+        android:layout_below="@id/imgCenter"
+        android:hint="@string/usHint"
+        android:layout_marginTop="20dp"
+        />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinEdu"
+        android:layout_below="@id/txtInput"
+        android:entries="@array/nivelEducativo"
+        >
+
+    </Spinner>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinEdu">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnFrame"
+            android:layout_weight="0.3"
+            android:text="@string/frame"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnWeb"
+            android:layout_weight="0.3"
+            android:text="@string/web"
+        />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnList"
+            android:layout_weight="0.3"
+            android:text="@string/list"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
