@@ -8,30 +8,35 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/fibonacci"
+        android:src="@drawable/factorial"
         />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/txtContainer3"
             android:orientation="vertical"
-            android:id="@+id/txtContainer2"
             android:paddingTop="10dp"
             >
-            
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/initial"
+                android:id="@+id/txtMult"
                 android:gravity="center"
-                android:id="@+id/txtFib2"
                 />
-            
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtFact"
+                android:gravity="center"
+                />
+
         </LinearLayout>
 
     </ScrollView>

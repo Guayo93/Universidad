@@ -51,16 +51,6 @@ public class ListActivity extends AppCompatActivity
         listview.setAdapter(adapter);
     }
 
-    private void initArray()
-    {
-        nombresPaises = new String[paises.length];
-
-        for(int i = 0; i < paises.length; i++)
-        {
-
-        }
-    }
-
     public String loadJSONfromAsset()
     {
         String json = null;

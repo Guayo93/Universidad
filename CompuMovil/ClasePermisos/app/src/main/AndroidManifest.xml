@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.cagua.taller1">
-
+    package="com.example.cagua.clasepermisos">
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,12 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Punto2_Activity" />
-        <activity android:name=".Punto3_Activity" />
-        <activity android:name=".Punto3A_Activity" />
-        <activity android:name=".Punto3B_Activity" />
-        <activity android:name=".Paises_Activity" />
-        <activity android:name=".PaisDetail_Activity"></activity>
+        <activity android:name=".PermisoDetail_Activity" />
     </application>
 
 </manifest>

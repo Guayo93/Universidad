@@ -6,4 +6,6 @@
     <string name="previous">Previous</string>
     <string name="hint">Numero de Iteraciones</string>
     <string name="factorial">Factorial</string>
+    <string name="empty">Sin Actividad</string>
+    <string name="paises">Paises</string>
 </resources>
