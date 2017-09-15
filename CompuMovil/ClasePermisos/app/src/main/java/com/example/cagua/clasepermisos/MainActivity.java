@@ -10,9 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
+    public final static int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 123;
+
     ImageButton btnContactos;
     ImageButton btnCamara;
     Intent detailIntent;
@@ -26,11 +29,13 @@ public class MainActivity extends AppCompatActivity
         btnContactos = (ImageButton) findViewById(R.id.btnContactos);
         btnCamara = (ImageButton) findViewById(R.id.btnCamara);
 
-        detailIntent = new Intent(this, PermisoDetail_Activity.class);
+        detailIntent = new Intent(this, ContactsListActivity.class);
 
-        btnContactos.setOnClickListener(new View.OnClickListener() {
+        btnContactos.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 startActivity(detailIntent);
             }
         });
