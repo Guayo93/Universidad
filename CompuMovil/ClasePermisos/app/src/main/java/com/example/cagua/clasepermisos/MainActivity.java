@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity
     ImageButton btnContactos;
     ImageButton btnCamara;
     Intent detailIntent;
+    Intent camaraIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity
         btnCamara = (ImageButton) findViewById(R.id.btnCamara);
 
         detailIntent = new Intent(this, ContactsListActivity.class);
+        camaraIntent = new Intent(this, CameraGalleryActivity.class);
 
         btnContactos.setOnClickListener(new View.OnClickListener()
         {
@@ -37,6 +39,13 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 startActivity(detailIntent);
+            }
+        });
+
+        btnCamara.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(camaraIntent);
             }
         });
     }

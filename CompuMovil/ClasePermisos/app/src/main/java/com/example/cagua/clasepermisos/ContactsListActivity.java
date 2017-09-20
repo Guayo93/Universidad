@@ -35,18 +35,11 @@ public class ContactsListActivity extends AppCompatActivity
         };
 
         mCursorAdapter = new ContactsCursor(this, null, 0);
-        list.setAdapter((ListAdapter) mCursorAdapter);
+        list.setAdapter(mCursorAdapter);
 
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED)
         {
-            if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_CONTACTS))
-            {
-
-            }
-            else
-            {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, MY_PERMISSIONS_REQUEST_READ_CONTACTS);
-            }
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, MY_PERMISSIONS_REQUEST_READ_CONTACTS);
         }
         else
         {
@@ -68,7 +61,7 @@ public class ContactsListActivity extends AppCompatActivity
                 }
                 else
                 {
-                    Toast.makeText(this, "Esta funcionalidad requiere permisos!", Toast.LENGTH_SHORT);
+                    Toast.makeText(this, "Esta funcionalidad requiere permisos!", Toast.LENGTH_SHORT).show();
                 }
                 return;
             }
