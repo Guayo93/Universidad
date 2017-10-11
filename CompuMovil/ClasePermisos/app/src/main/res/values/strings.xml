@@ -2,4 +2,9 @@
     <string name="app_name">ClasePermisos</string>
     <string name="gallery">Seleccionar Imagen</string>
     <string name="camera">Camara</string>
+    <string name="latitud">Latitud: </string>
+    <string name="longitud">Longitud: </string>
+    <string name="altitud">Altitud: </string>
+    <string name="distancia">Distancia a la Plaza de Bolivar: </string>
+    <string name="btnLocation">Guardar Ubicacion</string>
 </resources>

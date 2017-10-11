@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">FireBaseApp</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="login">login</string>
+    <string name="signup">signup</string>
+    <string name="logout">Cerrar Sesion</string>
+    <string name="config">Configuracion</string>
+    <string name="auth_failed">Fallo la autenticacion</string>
+    <string name="nombre">Nombre:</string>
+    <string name="apellido">Apellido:</string>
+    <string name="correo">Correo:</string>
+    <string name="pass">Password:</string>
+    <string name="galeria">galeria</string>
+    <string name="camara">camara</string>
+    <string name="register">Registrarme</string>
+</resources>

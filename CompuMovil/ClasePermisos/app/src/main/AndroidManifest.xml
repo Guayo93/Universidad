@@ -3,10 +3,14 @@
     package="com.example.cagua.clasepermisos">
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -23,7 +27,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ContactsListActivity" />
-        <activity android:name=".CameraGalleryActivity"></activity>
+        <activity android:name=".CameraGalleryActivity" />
+        <activity android:name=".LocationActivity"></activity>
     </application>
 
 </manifest>
