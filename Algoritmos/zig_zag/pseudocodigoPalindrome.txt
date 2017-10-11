@@ -1,0 +1,84 @@
+Dada una secuencia de caracteres S, encontrar la subsecuencia palindroma P mas larga
+
+Entradas: secuencia S
+
+Salidas: subsecuencia P
+
+
+												{ 0                                                       ; i > f        }
+Palindrome( S, i, f) =  { 1                                                       ; i = f        }
+												{ Palindromo( S , i+1 , f-1 ) + 2                         ; S[i] == S[f] }
+												{ max{Palindromo(S , i+1 , f ) , Palindromo(S, i , f-1) } ; S[i] != S[f] }
+
+procedure Palindrome_naive( S , i , f):
+	if( i > f ) do:
+		return 0
+	end if
+	if( i = f ) do:
+		return 1
+	end if
+	if( S[i] = S[f] ) do:
+		return Palindrome( S , i+1 , f-1 ) + 2 ;
+	end if
+	if( S[i] != S[f] ) do:
+		let a <- Palindrome( S , i , f-1 )
+		let b <- Palindrome( S , i+1 , f )
+		if ( a > b ) do:
+			return a
+		else:
+			return b
+		end if
+	end if
+end procedure
+
+require M
+procedure Palindrome_mem( S , M , i , f ):
+	if( i > f ) do:
+		M[i][f] <- 0
+	end if
+	if( i = f ) do:
+		M[i][f] <- 1;
+	end if
+	if( S[i] = S[f] ) do:
+		M[i][f] <- Palindrome( S , i+1 , f-1 ) + 2 ;
+	end if
+	if( S[i] != S[f] ) do:
+		let a <- Palindrome( S , i , f-1 )
+		let b <- Palindrome( S , i+1 , f )
+		if ( a > b ) do:
+			M[i][f] <- a
+		else:
+			M[i][f] <- b
+		end if
+	end if
+end procedure
+
+procedure Palindrome_bottomup( S ):
+	let max_size <- -inf
+	let max_pos <- undefined
+	let M <- |S| x |S|
+	for i <- 1 to |S| do:
+		M[i][i] <- 1
+	end for
+	for currLen <- 2 to |S| do:
+		if( currLen = 2 ) do:
+			for i <- 1 to |S| do:
+				if (S[i] == S[i+1]) do:
+					M[i][i+1] <- 2
+					max_pos <- i
+					max_size <- 2
+				end if
+			end for
+		else:
+			for i <- 1 to |S| do:
+				let j <- i + currLen
+				if( S[i] = S[j] && M[i+1][j-1] != undefined )do:
+					M[i][j] <- currLen
+					max_pos <- i
+					max_size <- currLen
+				end if
+			end for
+		end if
+	end for
+	return S from max_pos to (max_size + max_pos)
+end procedure
