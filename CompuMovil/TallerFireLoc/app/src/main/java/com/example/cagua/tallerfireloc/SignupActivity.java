@@ -52,7 +52,7 @@ public class SignupActivity extends AppCompatActivity
         btnCamara = (Button) findViewById(R.id.btnCamara);
         btnRegisto = (Button) findViewById(R.id.btnRegistro);
 
-        homeIntent = new Intent(this, HomeActivity.class);
+        homeIntent = new Intent(this, HomeActivity2.class);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener()

@@ -15,4 +15,7 @@
     <string name="txtCamara">Camara</string>
     <string name="txtRegistro">Registrarse</string>
     <string name="sgnup_failed">Algun campo registrado ya esta siendo utilizado</string>
+    <string name="title_activity_home">Map</string>
+    <string name="hintAddress">Ingrese una direccion</string>
+    <string name="noctMode">Modo Nocturno</string>
 </resources>
