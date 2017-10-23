@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">TallerFireLoc</string>
+    <string name="emailHint">Email</string>
+    <string name="passHint">Password</string>
+    <string name="btnLogin">Login</string>
+    <string name="btnSignup">Signup</string>
+    <string name="auth_failed">El usuario o contraseña son incorrectos</string>
+    <string name="menuLogout">Cerrar Sesion</string>
+    <string name="menuSettings">Configuracion</string>
+    <string name="txtNombre">Nombre:</string>
+    <string name="txtApellido">Apellido:</string>
+    <string name="txtCorreo">Correo:</string>
+    <string name="txtPassword">Password:</string>
+    <string name="txtGaleria">Galeria</string>
+    <string name="txtCamara">Camara</string>
+    <string name="txtRegistro">Registrarse</string>
+    <string name="sgnup_failed">Algun campo registrado ya esta siendo utilizado</string>
+</resources>
