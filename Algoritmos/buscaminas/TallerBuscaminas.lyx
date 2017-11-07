@@ -1,0 +1,223 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Taller Buscaminas
+\end_layout
+
+\begin_layout Author
+Juan Miguel Gomez Ganem - Alejandro Guayara
+\end_layout
+
+\begin_layout Part
+Diseño
+\end_layout
+
+\begin_layout Subsection*
+Problema Humano
+\end_layout
+
+\begin_layout Standard
+Resolver el tablero del buscaminas.
+\end_layout
+
+\begin_layout Subsection*
+Problema Formal
+\end_layout
+
+\begin_layout Standard
+Dado un tablero rectangular M x N, descubrir todas las posiciones de dicho
+ tablero sin caer en una mina.
+\end_layout
+
+\begin_layout Subsection*
+Entradas
+\end_layout
+
+\begin_layout Itemize
+Conjunto A de M columnas por N filas, con todas sus posiciones cubiertas.
+\end_layout
+
+\begin_layout Subsection*
+Salidas
+\end_layout
+
+\begin_layout Itemize
+Conjunto B de M columnas por N filas, con todas sus posiciones descubiertas
+ a excepcion de las posiciones donde se encuentran las minas.
+\end_layout
+
+\begin_layout Part
+Pseudocodigo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename main.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename init.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename getBestChoice.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename updateProbs.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename getNeighbours.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename setValue_countPicked.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename isInside.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename hasFinished.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Heuristica
+\end_layout
+
+\begin_layout Standard
+La primera posicion utilizada dentro de la matriz es aleatoria.
+ La probabilidad de las casillas seleccionada es 0.
+ Despues se calcula la probabilidad de cada casilla tapada de la siguiente
+ manera:
+\end_layout
+
+\begin_layout Itemize
+Probabilidad de la casilla actual es igual a la suma de las probabilidades
+ de sus vecinos destapados, en caso de no tener un vecino destapado su probabili
+dad es la probabilidad base (numero de minas divido numero de espacios tapados).
+\end_layout
+
+\begin_layout Itemize
+Probabilidad de un vecino destapado es igual al numero de minas alrededor
+ divido por el numero de espacios tapados alrededor.
+ Si no tiene vecinos tapados, la probabilidad es igual a 0.
+\end_layout
+
+\begin_layout Standard
+La siguiente casilla a utilizar es aquella que tenga la menor probabilidad.
+\end_layout
+
+\end_body
+\end_document
