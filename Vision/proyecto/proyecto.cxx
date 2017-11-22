@@ -102,12 +102,6 @@ int main( int argc, char** argv )
   cvtColor( src, srcGray, COLOR_BGR2GRAY );
   threshold( srcGray, srcBin, 128, 255, CV_THRESH_BINARY );
 
-  Mat dil, ero, grad;
-  Mat dilMod = getStructuringElement( MORPH_RECT, Size( 3, 3 ), Point( 1, 1 ) );
-  Mat eroMod = getStructuringElement( MORPH_RECT, Size( 3, 3 ), Point( 1, 1 ) );
-  dilate( srcBin, dil, dilMod );
-  erode( srcBin, ero, eroMod, Point(-1, -1), 6 );
-
   imwrite( "source.png", src );
   Mat conts, numeration;
   src.copyTo( conts );
